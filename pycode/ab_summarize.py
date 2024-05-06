@@ -36,13 +36,53 @@ def abstractive_summarize_chunks(chunks: List[str]) -> str:
     final_summary = " ".join(summaries)
     return final_summary
 
+import torch
+# from torch.cuda.amp import autocast, GradScaler
+from torch.utils.data import DataLoader
+from transformers import BartForConditionalGeneration, BartTokenizerFast
+
+# Load the BART-large model and tokenizer
+model = BartForConditionalGeneration.from_pretrained('facebook/bart-large')
+tokenizer = BartTokenizerFast.from_pretrained('facebook/bart-large')
+
+
+def batch_abstractive_summarize_chunks(chunks: List[str], batch_size: int = 8) -> str:
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model.to(device)
+
+    dataset = [tokenizer.encode(chunk, truncation=True, max_length=1024) for chunk in chunks]
+    data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
+
+    summaries = []
+    if torch.cuda.is_available():
+        # scaler = torch.cuda.amp.GradScaler()
+        for batch in data_loader:
+            with torch.cuda.amp.autocast():
+                inputs = batch.to(device)
+                summary_ids = model.generate(inputs, max_length=150, min_length=40, length_penalty=2.0, num_beams=2, early_stopping=True)
+            summary_texts = tokenizer.batch_decode(summary_ids, skip_special_tokens=True)
+            summaries.extend(summary_texts)
+    else:
+        for batch in data_loader:
+            inputs = batch.to(device)
+            summary_ids = model.generate(inputs, max_length=150, min_length=40, length_penalty=2.0, num_beams=2, early_stopping=True)
+            summary_texts = tokenizer.batch_decode(summary_ids, skip_special_tokens=True)
+            summaries.extend(summary_texts)
+
+    final_summary = " ".join(summaries)
+    return final_summary
+
+
 # # Use the split_text_into_chunks function from previous examples to get chunks
-# vtt_filename = "data/formatted_output.vtt"
-# with open(vtt_filename, 'r', encoding='utf-8') as file:
-#     vtt_content = file.read()
+vtt_filename = "data/formatted_output.vtt"
+with open(vtt_filename, 'r', encoding='utf-8') as file:
+    vtt_content = file.read()
 
-# chunks = split_text_into_chunks(vtt_content)
+chunks = split_text_into_chunks(vtt_content)
 
-# # Summarize the chunks
-# final_summary = abstractive_summarize_chunks(chunks)
-# print(final_summary)
+# Summarize the chunks
+final_summary = abstractive_summarize_chunks(chunks)
+print(final_summary)
+
+final_summary = batch_abstractive_summarize_chunks(chunks)
+print(final_summary)

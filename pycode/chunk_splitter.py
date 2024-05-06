@@ -3,7 +3,7 @@ from transformers import BartTokenizer
 from typing import List
 
 
-nltk.download('punkt')
+# nltk.download('punkt')
 
 # Load the BART-large-cnn tokenizer
 tokenizer = BartTokenizer.from_pretrained('facebook/bart-large-cnn')
@@ -51,12 +51,12 @@ def split_text_into_chunks(text: str, max_tokens: int = 1024) -> List[str]:
         tokens_chunks.append(tokenizer.decode(current_chunk))
     
     print()
-    print("Splitting into chunks...")
-    print(f"Number of chunks: {len(tokens_chunks)}")
-    for i, chunk in enumerate(tokens_chunks):
-        print(f"Chunk {i+1}: {len(tokenizer.encode(chunk))} tokens")
-    print("Chunk splitting completed YEY!!")
-    print()
+    # print("Splitting into chunks...")
+    # print(f"Number of chunks: {len(tokens_chunks)}")
+    # for i, chunk in enumerate(tokens_chunks):
+    #     print(f"Chunk {i+1}: {len(tokenizer.encode(chunk))} tokens")
+    print("Splitting in chunks completed")
+    # print()
     
     return tokens_chunks
 

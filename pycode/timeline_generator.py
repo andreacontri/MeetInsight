@@ -46,7 +46,7 @@ def create_timeline_figure(df):
         for _, row in speaker_df.iterrows():
             start = row['StartTime']
             end = row['EndTime']
-            ax.add_patch(patches.Rectangle((start, speaker_positions[speaker] - 0.15), end - start, 0.5, color=f'C{speaker_positions[speaker]}', alpha=0.5))
+            ax.add_patch(patches.Rectangle((start, speaker_positions[speaker] - 0.15), end - start, 0.5, color=color, alpha=0.5))
         # Add patch to legend list
         legend_patches.append(patches.Patch(color=color, label=speaker, alpha=0.5))
     
