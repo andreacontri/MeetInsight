@@ -2,6 +2,9 @@ import nltk
 from transformers import BartTokenizer
 from typing import List
 
+
+nltk.download('punkt')
+
 # Load the BART-large-cnn tokenizer
 tokenizer = BartTokenizer.from_pretrained('facebook/bart-large-cnn')
 
