@@ -2,7 +2,7 @@ from typing import List
 from transformers import BartForConditionalGeneration, BartTokenizer
 import torch
 from chunk_splitter import split_text_into_chunks
-
+"yolo"
 # Load the BART-large-cnn model and tokenizer
 model = BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn')
 tokenizer = BartTokenizer.from_pretrained('facebook/bart-large-cnn')
