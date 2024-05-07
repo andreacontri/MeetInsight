@@ -67,13 +67,29 @@ def extractive_summarize_chunks(chunks: List[str], sentences_count: int = 1) -> 
     return final_summary
 
 def format_vtt_as_dialogue(text):
-    # Find all dialogue entries with timestamps and speaker tags
-    entries = re.findall(r'(\d{2,}:\d{2}:\d{2}\.\d{3}) --> (\d{2,}:\d{2}:\d{2}\.\d{3}) <v ([^>]+)>(.*?)</v>', text, re.DOTALL)
+    """
+    Process the content of a VTT file to extract and format dialogue entries. This function identifies
+    timestamped dialogue entries with speaker tags and formats them into a readable dialogue format.
+
+    Args:
+        text (str): Raw content from a VTT (Web Video Text Tracks) file.
+
+    Returns:
+        str: Formatted string representing the dialogues with timestamps and speaker names.
+    """
+    # Regex to extract dialogues with timestamps and speaker tags from the VTT content
+    entries = re.findall(
+        r'(\d{2,}:\d{2}:\d{2}\.\d{3}) --> (\d{2,}:\d{2}:\d{2}\.\d{3}) <v ([^>]+)>(.*?)</v>',
+        text, re.DOTALL
+    )
     
     formatted_text = []
+    # Iterate through each extracted dialogue entry
     for start, end, speaker, content in entries:
-        # Clean up the content
+        # Clean up the dialogue content by removing newline characters and stripping leading/trailing spaces
         content = content.replace('\n', ' ').strip()
+        # Format the dialogue entry with speaker name and timestamps
         formatted_text.append(f"{speaker} ({start} to {end}):\n{content}\n")
 
+    # Join all formatted dialogues into a single string with newline separators
     return '\n'.join(formatted_text)
