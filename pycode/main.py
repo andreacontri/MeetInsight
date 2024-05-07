@@ -9,12 +9,12 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) # remove future warnings for debugging
 
 # Import custom modules
-from vtt_formatting import format_VTT
-from timeline_generator import create_timeline_figure
-from stats_generator import create_stats_figure
-from chunk_splitter import split_text_into_chunks
-from summaries import abstractive_summarize_chunks, extractive_summarize_chunks, format_vtt_as_dialogue
-from openai import summarize_text
+from packages.vtt_formatting import format_VTT
+from packages.timeline_generator import create_timeline_figure
+from packages.stats_generator import create_stats_figure
+from packages.chunk_splitter import split_text_into_chunks
+from packages.summaries import abstractive_summarize_chunks, extractive_summarize_chunks, format_vtt_as_dialogue
+from packages.openai import summarize_text
 
 # Window size
 window_width = 800

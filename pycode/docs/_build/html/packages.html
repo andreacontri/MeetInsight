@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>packages package &mdash; FYP 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="main module" href="main.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            FYP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pycode</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">packages package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-packages.chunk_splitter">packages.chunk_splitter module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#packages.chunk_splitter.split_text_into_chunks"><code class="docutils literal notranslate"><span class="pre">split_text_into_chunks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-packages.openai">packages.openai module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#packages.openai.summarize_text"><code class="docutils literal notranslate"><span class="pre">summarize_text()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-packages.stats_generator">packages.stats_generator module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#packages.stats_generator.create_stats_figure"><code class="docutils literal notranslate"><span class="pre">create_stats_figure()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-packages.summaries">packages.summaries module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#packages.summaries.abstractive_summarize_chunks"><code class="docutils literal notranslate"><span class="pre">abstractive_summarize_chunks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#packages.summaries.extractive_summarize_chunks"><code class="docutils literal notranslate"><span class="pre">extractive_summarize_chunks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#packages.summaries.format_vtt_as_dialogue"><code class="docutils literal notranslate"><span class="pre">format_vtt_as_dialogue()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-packages.timeline_generator">packages.timeline_generator module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#packages.timeline_generator.create_timeline_figure"><code class="docutils literal notranslate"><span class="pre">create_timeline_figure()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-packages.vtt_formatting">packages.vtt_formatting module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#packages.vtt_formatting.format_VTT"><code class="docutils literal notranslate"><span class="pre">format_VTT()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-packages">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FYP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">pycode</a></li>
+      <li class="breadcrumb-item active">packages package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/packages.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="packages-package">
+<h1>packages package<a class="headerlink" href="#packages-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-packages.chunk_splitter">
+<span id="packages-chunk-splitter-module"></span><h2>packages.chunk_splitter module<a class="headerlink" href="#module-packages.chunk_splitter" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="packages.chunk_splitter.split_text_into_chunks">
+<span class="sig-prename descclassname"><span class="pre">packages.chunk_splitter.</span></span><span class="sig-name descname"><span class="pre">split_text_into_chunks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/packages/chunk_splitter.html#split_text_into_chunks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#packages.chunk_splitter.split_text_into_chunks" title="Link to this definition"></a></dt>
+<dd><p>Split a given text into manageable chunks of a maximum number of tokens, while respecting 
+sentence boundaries. This ensures that sentences are not cut off abruptly in the middle, 
+which is crucial for tasks like summarization or translation where context is important.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text (str): The input text to be split.
+max_tokens (int, optional): The maximum number of tokens per chunk. Defaults to 1024.</p>
+</dd>
+<dt>Returns:</dt><dd><p>List[str]: A list of text chunks, each having a maximum of <cite>max_tokens</cite> tokens.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-packages.openai">
+<span id="packages-openai-module"></span><h2>packages.openai module<a class="headerlink" href="#module-packages.openai" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="packages.openai.summarize_text">
+<span class="sig-prename descclassname"><span class="pre">packages.openai.</span></span><span class="sig-name descname"><span class="pre">summarize_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/packages/openai.html#summarize_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#packages.openai.summarize_text" title="Link to this definition"></a></dt>
+<dd><p>Utilize the OpenAI API to generate a summary of the provided text. This function makes an HTTP POST request
+to the OpenAI API endpoint to process the text summarization task.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text (str): The text to be summarized, typically extracted from a VTT file or similar content.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The summarized text as returned by the OpenAI model, or None if an error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-packages.stats_generator">
+<span id="packages-stats-generator-module"></span><h2>packages.stats_generator module<a class="headerlink" href="#module-packages.stats_generator" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="packages.stats_generator.create_stats_figure">
+<span class="sig-prename descclassname"><span class="pre">packages.stats_generator.</span></span><span class="sig-name descname"><span class="pre">create_stats_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/packages/stats_generator.html#create_stats_figure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#packages.stats_generator.create_stats_figure" title="Link to this definition"></a></dt>
+<dd><p>Generate a figure containing pie charts for various statistical data about speakers.</p>
+<p>Parameters:
+- df (pandas.DataFrame): DataFrame containing ‘StartTime’, ‘EndTime’, ‘Speaker’, and ‘Text’ columns.</p>
+<p>Returns:
+- matplotlib.figure.Figure: Figure object containing the plotted data.</p>
+</dd></dl>
+
+</section>
+<section id="module-packages.summaries">
+<span id="packages-summaries-module"></span><h2>packages.summaries module<a class="headerlink" href="#module-packages.summaries" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="packages.summaries.abstractive_summarize_chunks">
+<span class="sig-prename descclassname"><span class="pre">packages.summaries.</span></span><span class="sig-name descname"><span class="pre">abstractive_summarize_chunks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chunks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/packages/summaries.html#abstractive_summarize_chunks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#packages.summaries.abstractive_summarize_chunks" title="Link to this definition"></a></dt>
+<dd><p>Summarize each chunk of text and concatenate all summaries into a final summary text.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>chunks (List[str]): List of text chunks to be summarized.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: A concatenated summary of all chunks.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="packages.summaries.extractive_summarize_chunks">
+<span class="sig-prename descclassname"><span class="pre">packages.summaries.</span></span><span class="sig-name descname"><span class="pre">extractive_summarize_chunks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chunks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentences_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/packages/summaries.html#extractive_summarize_chunks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#packages.summaries.extractive_summarize_chunks" title="Link to this definition"></a></dt>
+<dd><p>Summarize each chunk of text using the Luhn heuristic method for extractive summarization and concatenate all summaries into a final summary text.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>chunks (List[str]): List of text chunks to be summarized.
+sentences_count (int): Number of sentences to include in the summary of each chunk.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: A concatenated summary of all chunks.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="packages.summaries.format_vtt_as_dialogue">
+<span class="sig-prename descclassname"><span class="pre">packages.summaries.</span></span><span class="sig-name descname"><span class="pre">format_vtt_as_dialogue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/packages/summaries.html#format_vtt_as_dialogue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#packages.summaries.format_vtt_as_dialogue" title="Link to this definition"></a></dt>
+<dd><p>Process the content of a VTT file to extract and format dialogue entries. This function identifies
+timestamped dialogue entries with speaker tags and formats them into a readable dialogue format.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text (str): Raw content from a VTT (Web Video Text Tracks) file.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: Formatted string representing the dialogues with timestamps and speaker names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-packages.timeline_generator">
+<span id="packages-timeline-generator-module"></span><h2>packages.timeline_generator module<a class="headerlink" href="#module-packages.timeline_generator" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="packages.timeline_generator.create_timeline_figure">
+<span class="sig-prename descclassname"><span class="pre">packages.timeline_generator.</span></span><span class="sig-name descname"><span class="pre">create_timeline_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/packages/timeline_generator.html#create_timeline_figure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#packages.timeline_generator.create_timeline_figure" title="Link to this definition"></a></dt>
+<dd><p>Generate a timeline figure illustrating the durations each speaker spoke in a conversation.
+This function uses the Matplotlib library to create a timeline from a DataFrame that contains
+start and end times along with speaker identifiers.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (pd.DataFrame): DataFrame containing the columns ‘StartTime’, ‘EndTime’, and ‘Speaker’,
+where time columns are in the format HH:MM:SS.sss.</p>
+</dd>
+<dt>Returns:</dt><dd><p>matplotlib.figure.Figure: The matplotlib figure object representing the timeline.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-packages.vtt_formatting">
+<span id="packages-vtt-formatting-module"></span><h2>packages.vtt_formatting module<a class="headerlink" href="#module-packages.vtt_formatting" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="packages.vtt_formatting.format_VTT">
+<span class="sig-prename descclassname"><span class="pre">packages.vtt_formatting.</span></span><span class="sig-name descname"><span class="pre">format_VTT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/packages/vtt_formatting.html#format_VTT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#packages.vtt_formatting.format_VTT" title="Link to this definition"></a></dt>
+<dd><p>Read and process a VTT file to format its timestamps and extract data into a DataFrame.
+This function also saves a new VTT file with formatted timestamps.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>file_path (str): The path to the VTT file that needs to be formatted and processed.</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple: A tuple containing a DataFrame with the VTT data and the formatted VTT content as a string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-packages">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-packages" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="main.html" class="btn btn-neutral float-left" title="main module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Andy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

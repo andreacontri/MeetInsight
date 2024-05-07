@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>main &mdash; FYP 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FYP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">pycode</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FYP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">main</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for main</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span><span class="p">,</span> <span class="n">messagebox</span><span class="p">,</span> <span class="n">ttk</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_tkagg</span> <span class="kn">import</span> <span class="n">FigureCanvasTkAgg</span>
+<span class="kn">from</span> <span class="nn">tkinter.scrolledtext</span> <span class="kn">import</span> <span class="n">ScrolledText</span>
+<span class="kn">import</span> <span class="nn">tkinter.font</span> <span class="k">as</span> <span class="nn">tkFont</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span> <span class="c1"># remove future warnings for debugging</span>
+
+<span class="c1"># Import custom modules</span>
+<span class="kn">from</span> <span class="nn">packages.vtt_formatting</span> <span class="kn">import</span> <span class="n">format_VTT</span>
+<span class="kn">from</span> <span class="nn">packages.timeline_generator</span> <span class="kn">import</span> <span class="n">create_timeline_figure</span>
+<span class="kn">from</span> <span class="nn">packages.stats_generator</span> <span class="kn">import</span> <span class="n">create_stats_figure</span>
+<span class="kn">from</span> <span class="nn">packages.chunk_splitter</span> <span class="kn">import</span> <span class="n">split_text_into_chunks</span>
+<span class="kn">from</span> <span class="nn">packages.summaries</span> <span class="kn">import</span> <span class="n">abstractive_summarize_chunks</span><span class="p">,</span> <span class="n">extractive_summarize_chunks</span><span class="p">,</span> <span class="n">format_vtt_as_dialogue</span>
+<span class="kn">from</span> <span class="nn">packages.openai</span> <span class="kn">import</span> <span class="n">summarize_text</span>
+
+<span class="c1"># Window size</span>
+<span class="n">window_width</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">window_height</span> <span class="o">=</span> <span class="mi">700</span>
+
+<div class="viewcode-block" id="VTTAnalyzer">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer">[docs]</a>
+<span class="k">class</span> <span class="nc">VTTAnalyzer</span><span class="p">(</span><span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the VTTAnalyzer application with a specified window title, size, and a non-resizable configuration.</span>
+<span class="sd">        It also initializes several attributes to None and sets up the GUI components of the application.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;VTT File Analyzer&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">window_width</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">window_height</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># Make the window fixed in size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_scrollable_window</span><span class="p">()</span>  <span class="c1"># Setup the main GUI components</span>
+        
+        <span class="c1"># Initialize multiple attributes to None for later use</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ab</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Abstractive summarization result placeholder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ex</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Extractive summarization result placeholder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeline</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Timeline visualization placeholder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stats</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Statistical data visualization placeholder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunks</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Text chunks for analysis placeholder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas_widget</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Canvas widget for dynamic content display</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># DataFrame to hold VTT data, if applicable</span>
+
+
+
+<div class="viewcode-block" id="VTTAnalyzer.setup_scrollable_window">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.setup_scrollable_window">[docs]</a>
+    <span class="k">def</span> <span class="nf">setup_scrollable_window</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Setup the main window with a vertical scrollbar and a canvas for scrolling. This function</span>
+<span class="sd">        initializes a canvas and a scrollbar and binds them to create a scrollable frame that fills</span>
+<span class="sd">        the main window. It also sets up mouse wheel scrolling for the frame and initiates the widget</span>
+<span class="sd">        creation process.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Create a canvas with light blue background</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Canvas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">)</span>
+        <span class="c1"># Create a vertical scrollbar linked to the canvas&#39;s Y-axis scroll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scrollbar</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Scrollbar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">yview</span><span class="p">)</span>
+        <span class="c1"># Frame that will hold the widgets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scrollable_frame</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">)</span>
+
+        <span class="c1"># Bind frame configuration to dynamically update the canvas scroll region</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scrollable_frame</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span>
+            <span class="s2">&quot;&lt;Configure&gt;&quot;</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">scrollregion</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bbox</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">))</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Create a window in the canvas that hosts the scrollable_frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_window</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">window</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scrollable_frame</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;nw&quot;</span><span class="p">)</span>
+        <span class="c1"># Link scrollbar to canvas scroll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">yscrollcommand</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scrollbar</span><span class="o">.</span><span class="n">set</span><span class="p">)</span>
+
+        <span class="c1"># Pack the canvas and scrollbar into the window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scrollbar</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Enable scrolling via the mouse wheel across the whole window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bind_all</span><span class="p">(</span><span class="s2">&quot;&lt;MouseWheel&gt;&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_mouse_wheel</span><span class="p">)</span>
+
+        <span class="c1"># Call to create widgets in the scrollable area</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_widgets</span><span class="p">()</span></div>
+
+
+
+
+<div class="viewcode-block" id="VTTAnalyzer.create_widgets">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.create_widgets">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create and pack the widgets in the scrollable frame.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">custom_font</span> <span class="o">=</span> <span class="n">tkFont</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Helvetica&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># Define the font</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scrollable_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Please upload a VTT file:&quot;</span><span class="p">,</span> <span class="c1"># Upload label</span>
+                                        <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">custom_font</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_label</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scrollable_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Upload File&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">open_file</span><span class="p">,</span> <span class="c1"># Upload button</span>
+                                        <span class="n">bg</span><span class="o">=</span><span class="s1">&#39;#66c2a5&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">custom_font</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ex_analyze_button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scrollable_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Show Key Sentences&quot;</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span> <span class="c1"># Key Sentences button</span>
+                                        <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">generate_ex_summary</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">&#39;#8da0cb&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">custom_font</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ex_analyze_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ab_analyze_button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scrollable_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Show Summary&quot;</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span> <span class="c1"># Summary Button</span>
+                                        <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">generate_ab_summary</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">&#39;#8da0cb&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">custom_font</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ab_analyze_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary_box</span> <span class="o">=</span> <span class="n">ScrolledText</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scrollable_frame</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="c1"># Text Box for summaries</span>
+                                        <span class="n">font</span><span class="o">=</span><span class="n">custom_font</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary_box</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="VTTAnalyzer.open_file">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.open_file">[docs]</a>
+    <span class="k">def</span> <span class="nf">open_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Open a file dialog to allow the user to select a VTT file and then load its content into the application.</span>
+<span class="sd">        Upon loading, the function will update the interface to reflect the loaded file and enable further analysis options.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Open a file dialog to select a VTT file</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span><span class="n">filetypes</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;VTT files&quot;</span><span class="p">,</span> <span class="s2">&quot;*.vtt&quot;</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="n">file_path</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Attempt to format and load data from the selected VTT file</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatted_content</span> <span class="o">=</span> <span class="n">format_VTT</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+                <span class="c1"># Enable analysis buttons once file is successfully loaded</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ex_analyze_button</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ab_analyze_button</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">)</span>
+                <span class="c1"># Update the upload label to show the loaded file name</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">upload_label</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;File loaded: </span><span class="si">{</span><span class="n">file_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                
+                <span class="c1"># Optional debugging message to confirm file load</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VTT file loaded successfully.&quot;</span><span class="p">)</span>
+
+                <span class="c1"># Display visualizations and summaries based on the loaded data</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">show_plot</span><span class="p">(</span><span class="n">create_timeline_figure</span><span class="p">)</span>  <span class="c1"># Visualize timeline data</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">show_plot</span><span class="p">(</span><span class="n">create_stats_figure</span><span class="p">)</span>  <span class="c1"># Visualize statistical data</span>
+                <span class="c1"># self.openai_summary()  # Generate summaries using OpenAI models</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="c1"># Handle exceptions by showing an error message and updating the UI</span>
+                <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">upload_label</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Failed to load file.&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="VTTAnalyzer.insert_text">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.insert_text">[docs]</a>
+    <span class="k">def</span> <span class="nf">insert_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Insert text into the summary box widget, allowing modifications only during the update. The function also</span>
+<span class="sd">        handles enabling buttons based on the content being displayed, depending on whether it matches predefined</span>
+<span class="sd">        summaries for extractive or abstractive analysis results.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            text (str): The text to be inserted into the summary box.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Enable the text box for editing</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary_box</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">)</span>
+        <span class="c1"># Clear existing content</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary_box</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+        <span class="c1"># Insert new text</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary_box</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="c1"># Disable the text box to prevent user edits</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary_box</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;disabled&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Conditional UI update based on the text content</span>
+        <span class="k">match</span> <span class="n">text</span><span class="p">:</span>
+            <span class="k">case</span> <span class="bp">self</span><span class="o">.</span><span class="n">ex</span><span class="p">:</span>
+                <span class="c1"># Re-enable the button for extractive summary analysis if relevant</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ex_analyze_button</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">)</span>
+            <span class="k">case</span> <span class="bp">self</span><span class="o">.</span><span class="n">ab</span><span class="p">:</span>
+                <span class="c1"># Re-enable the button for abstractive summary analysis if relevant</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ab_analyze_button</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="VTTAnalyzer.generate_ex_summary">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.generate_ex_summary">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_ex_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate an extractive summary from the loaded VTT content. This function checks if the summary has been</span>
+<span class="sd">        previously generated. If not, it processes the content, generates the summary, and formats it. The summary</span>
+<span class="sd">        is then displayed in the GUI.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check if the extractive summary has already been generated</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ex</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Split the text into chunks if not already done</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">chunks</span> <span class="o">=</span> <span class="n">split_text_into_chunks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">formatted_content</span><span class="p">)</span>
+            <span class="c1"># Generate an extractive summary from the chunks</span>
+            <span class="n">final_summary</span> <span class="o">=</span> <span class="n">extractive_summarize_chunks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chunks</span><span class="p">)</span>
+            <span class="c1"># Format the summary for display</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ex</span> <span class="o">=</span> <span class="n">format_vtt_as_dialogue</span><span class="p">(</span><span class="n">final_summary</span><span class="p">)</span>
+            <span class="c1"># Optional debugging message to confirm the extraction</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key Sentences Extracted&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Display the extractive summary in the GUI</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ex</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="VTTAnalyzer.generate_ab_summary">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.generate_ab_summary">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_ab_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate an abstractive summary from the loaded VTT content. This function checks if the summary has been</span>
+<span class="sd">        previously generated. If not, it processes the content and generates the summary. The summary is then displayed</span>
+<span class="sd">        in the GUI.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check if the abstractive summary has already been generated</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ab</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Split the text into chunks if not already done</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">chunks</span> <span class="o">=</span> <span class="n">split_text_into_chunks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">formatted_content</span><span class="p">)</span>
+            <span class="c1"># Generate an abstractive summary from the chunks</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ab</span> <span class="o">=</span> <span class="n">abstractive_summarize_chunks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chunks</span><span class="p">)</span>
+            <span class="c1"># Optional debugging message to confirm the generation</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Summary Generated&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Display the abstractive summary in the GUI</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ab</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="VTTAnalyzer.openai_summary">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.openai_summary">[docs]</a>
+    <span class="k">def</span> <span class="nf">openai_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a summary using an OpenAI model and print it.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Generate a summary for the formatted VTT content</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="n">summarize_text</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">formatted_content</span><span class="p">)</span>
+        <span class="c1"># Print the generated summary to the console</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="VTTAnalyzer.show_plot">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.show_plot">[docs]</a>
+    <span class="k">def</span> <span class="nf">show_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_function</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Display a matplotlib plot in the GUI. This method generates a plot using a provided function and</span>
+<span class="sd">        data, then integrates it into the scrollable canvas area of the interface.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            plot_function (function): A function that takes a DataFrame and returns a matplotlib figure.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Generate a plot with the provided function using the loaded data</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plot_function</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+        <span class="c1"># Close the figure to free up memory resources</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+        <span class="c1"># Embed the figure into the tkinter canvas using FigureCanvasTkAgg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas_widget</span> <span class="o">=</span> <span class="n">FigureCanvasTkAgg</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scrollable_frame</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas_widget</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas_widget</span><span class="o">.</span><span class="n">get_tk_widget</span><span class="p">()</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+        <span class="c1"># Update the scroll region to include the new plot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_scroll_region</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="VTTAnalyzer.on_mouse_wheel">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.on_mouse_wheel">[docs]</a>
+    <span class="k">def</span> <span class="nf">on_mouse_wheel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handle mouse wheel events to scroll the canvas vertically. This method adjusts the vertical</span>
+<span class="sd">        view of the canvas based on the mouse wheel movement.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            event: An event object containing information about the mouse wheel action.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Determine the direction of the scroll (up or down)</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">event</span><span class="o">.</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Scroll up</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">yview_scroll</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">event</span><span class="o">.</span><span class="n">delta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Scroll down</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">yview_scroll</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="VTTAnalyzer.update_scroll_region">
+<a class="viewcode-back" href="../main.html#main.VTTAnalyzer.update_scroll_region">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_scroll_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the scroll region of the canvas. This method is called after adding or resizing</span>
+<span class="sd">        content within the scrollable area to ensure that the entire content is accessible</span>
+<span class="sd">        through scrolling.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Adjust the scroll region to fit the new size of the content</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">scrollregion</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bbox</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">))</span></div>
+</div>
+
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Create an instance of the VTTAnalyzer application</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">VTTAnalyzer</span><span class="p">()</span>
+    <span class="c1"># Start the application&#39;s main event loop, waiting for user interaction</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Andy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
