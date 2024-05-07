@@ -16,7 +16,7 @@ from chunk_splitter import split_text_into_chunks
 from summaries import abstractive_summarize_chunks, extractive_summarize_chunks, format_vtt_as_dialogue
 
 # Window size
-window_width = 900
+window_width = 800
 window_height = 700
 
 class VTTAnalyzer(tk.Tk):
