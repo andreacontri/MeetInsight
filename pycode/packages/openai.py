@@ -28,7 +28,7 @@ def summarize_text(text):
     data = {
         "model": "gpt-3.5-turbo",
         "messages": [{"role": "user", "content": f"Summarize this meeting:\n\n{text}"}],
-        "max_tokens": 300,  # Set the maximum length of the summary
+        "max_tokens": 800,  # Set the maximum length of the summary
         "n": 1,  # Number of responses to generate
         "stop": None,  # Optional stopping character or sequence
         "temperature": 0.5,  # Sampling temperature

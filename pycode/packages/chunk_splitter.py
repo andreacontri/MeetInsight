@@ -65,5 +65,3 @@ def split_text_into_chunks(text: str, max_tokens: int = 1024) -> List[str]:
 #     vtt_content = file.read()
 
 # chunks = split_text_into_chunks(vtt_content)
-
-# print(chunks[1])

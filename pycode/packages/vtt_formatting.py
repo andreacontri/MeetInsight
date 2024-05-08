@@ -43,16 +43,13 @@ def format_VTT(file_path):
         for line in vtt_content.splitlines()
     )
 
-
     # Save the formatted content to a new .vtt file
-    with open("../data/formatted_output.vtt", "w", encoding="utf-8") as file:
+    with open("data/formatted_output.vtt", "w", encoding="utf-8") as file:
         file.write(formatted_content)
 
-    formatted_output = '../data/formatted_output.vtt'
+    formatted_output = 'data/formatted_output.vtt'
 
-    # print()
-    # print("Formatted .vtt file saved as '" + formatted_output + "'.")
-    # print()
+    print(), print("Formatted .vtt file saved as '" + formatted_output + "'.")
 
     start=[]
     end=[]
@@ -70,5 +67,4 @@ def format_VTT(file_path):
     listx=df['Speaker'].str.split('>', n=1, expand=True)
     df["Speaker"]=listx[0]
     df["Speaker"]=df["Speaker"].str.replace("<v ","")
-    # print(df.head())
     return df, formatted_content
