@@ -6,7 +6,7 @@ API_KEY = os.environ["OPENAI_API_KEY"]
 
 import requests
 
-def summarize_text(text):
+def summarize_text(text, tokens):
     """
     Utilize the OpenAI API to generate a summary of the provided text. This function makes an HTTP POST request
     to the OpenAI API endpoint to process the text summarization task.
@@ -23,12 +23,12 @@ def summarize_text(text):
         "Content-Type": "application/json",
         "Authorization": f"Bearer {API_KEY}"
     }
-
+    print(int(tokens))
     # Construct the data payload for the API request
     data = {
         "model": "gpt-3.5-turbo",
-        "messages": [{"role": "user", "content": f"Summarize this meeting:\n\n{text}"}],
-        "max_tokens": 800,  # Set the maximum length of the summary
+        "messages": [{"role": "user", "content": f"Summarize this meeting in {str(int(tokens))} words:\n\n{text}"}],
+        # "max_tokens": int(tokens),  # Set the maximum length of the summary
         "n": 1,  # Number of responses to generate
         "stop": None,  # Optional stopping character or sequence
         "temperature": 0.5,  # Sampling temperature

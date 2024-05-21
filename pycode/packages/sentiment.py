@@ -19,7 +19,7 @@ boundary_score = -0.1
 
 def sentiment(df):
 	# Analyze each turn in the conversation
-	
+	sentiment = []
 	for turn in df.Text:
 		scores = sia.polarity_scores(turn)
 
@@ -31,6 +31,7 @@ def sentiment(df):
 		for pronoun in other_person_pronouns:
 			if pronoun in turn.lower():
 				if scores['compound'] < boundary_score:
-					print(f"Negative sentiment towards the other person detected: {turn}" + "\n")
+					sentiment.append(f"Negative sentiment towards the other person detected: {turn}" + "\n" + "\n")
 					break
 
+	return sentiment

@@ -36,6 +36,12 @@ class VTTAnalyzer(tk.Tk):
         self.title("VTT File Analyzer")
         self.geometry(f"{window_width}x{window_height}")
         self.resizable(False, False)  # Make the window fixed in size
+        self.custom_font = tkFont.Font(family="Helvetica", size=12) # Define the font
+        
+        self.style = ttk.Style()
+        self.style.configure('TButton', background='#8da0cb', foreground='blue', font=self.custom_font)
+        self.style.configure('TLabel', font=self.custom_font,  foreground='darkgrey')
+        self.style.configure('TScale', background='#8da0cb')
         
         print(), print("Window Initialized")
         
@@ -48,8 +54,6 @@ class VTTAnalyzer(tk.Tk):
         self.chunks = None  # Text chunks for analysis placeholder
         self.canvas_widget = None  # Canvas widget for dynamic content display
         self.df = None  # DataFrame to hold VTT data, if applicable
-        
-        self.custom_font = tkFont.Font(family="Helvetica", size=12) # Define the font
         
         self.setup_scrollable_window()  # Setup the main GUI components
         
@@ -65,7 +69,7 @@ class VTTAnalyzer(tk.Tk):
         creation process.
         """
         # Create a canvas with light blue background
-        self.canvas = tk.Canvas(self, bg='lightblue')
+        self.canvas = tk.Canvas(self, bg='lightgrey')
         # Create a vertical scrollbar linked to the canvas's Y-axis scroll
         self.scrollbar = ttk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
         # Frame that will hold the widgets
@@ -107,36 +111,58 @@ class VTTAnalyzer(tk.Tk):
 
 
     def create_buttons(self):
-        
-        self.ex_analyze_button = tk.Button(self.scrollable_frame, text="Show Key Sentences", state='disabled', # Key Sentences button
-                                        command=self.generate_ex_summary, bg='#8da0cb', fg='white', font=self.custom_font)
+        button_options = {
+            'style': 'TButton',
+            'padding': 10,
+            'width': 25
+        }
+
+        self.ex_analyze_button = ttk.Button(self.scrollable_frame, text="Show Key Sentences", state='disabled', 
+                                            command=self.generate_ex_summary, **button_options)
         self.ex_analyze_button.pack(pady=10, padx=10)
 
-        self.ab_analyze_button = tk.Button(self.scrollable_frame, text="Show Abstractive Summary", state='disabled', # Summary Button
-                                        command=self.generate_ab_summary, bg='#8da0cb', fg='white', font=self.custom_font)
+        self.ab_analyze_button = ttk.Button(self.scrollable_frame, text="Show Abstractive Summary", state='disabled', 
+                                            command=self.generate_ab_summary, **button_options)
         self.ab_analyze_button.pack(pady=10, padx=10)
-        
-        self.ai_analyze_button = tk.Button(self.scrollable_frame, text="Show openAI Summary", state='disabled', # Summary Button
-                                        command=self.generate_openai_summary, bg='#8da0cb', fg='white', font=self.custom_font)
+
+        self.ai_analyze_button = ttk.Button(self.scrollable_frame, text="Show openAI Summary", state='disabled', 
+                                            command=self.generate_openai_summary, **button_options)
         self.ai_analyze_button.pack(pady=10, padx=10)
-        
-        self.transcript_button = tk.Button(self.scrollable_frame, text="Show full transcript", state='disabled', # Summary Button
-                                        command=self.view_transcript, bg='#8da0cb', fg='white', font=self.custom_font)
+
+        self.transcript_button = ttk.Button(self.scrollable_frame, text="Show full transcript", state='disabled', 
+                                            command=self.view_transcript, **button_options)
         self.transcript_button.pack(pady=10, padx=10)
-        
-        self.sentiment_button = tk.Button(self.scrollable_frame, text="Show sentiment analysis", state='disabled', # Summary Button
-                                        command=self.view_sentiment, bg='#8da0cb', fg='white', font=self.custom_font)
+
+        self.sentiment_button = ttk.Button(self.scrollable_frame, text="Show sentiment analysis", state='disabled', 
+                                           command=self.view_sentiment, **button_options)
         self.sentiment_button.pack(pady=10, padx=10)
 
-        self.summary_label = tk.Label(self.scrollable_frame, text="Summary Box", font=self.custom_font)
-        self.summary_label.pack(pady=[20,0], padx=10)
-        self.summary_box = ScrolledText(self.scrollable_frame, height=10, width=80, # Text Box for summaries
+        self.summary_label = ttk.Label(self.scrollable_frame, text="Select Summary Lenght", style='TLabel')
+        self.summary_label.pack(pady=[20, 0], padx=10)
+
+        # Create a Scale widget (slider)
+        self.slider = ttk.Scale(self.scrollable_frame, from_=50, to_=1000, orient=tk.HORIZONTAL, length=250)
+        self.slider.set(100)  # Set the default value to 800
+        self.slider.pack(pady=10, padx=10)
+
+        # Create a Label to display the slider value
+        self.value_label = ttk.Label(self.scrollable_frame, text=f"Total words set to: {int(self.slider.get())}", style='TLabel')
+        self.value_label.pack(pady=10, padx=10)
+
+        # Bind the slider to update the label
+        self.slider.bind("<Motion>", self.update_label)
+        
+        # self.slider.config(resolution=1)  # Ensure the slider steps are in integer increments
+        self.summary_label = ttk.Label(self.scrollable_frame, text="Summary", style='TLabel')
+        self.summary_label.pack(pady=[20, 0], padx=10)
+
+        self.summary_box = ScrolledText(self.scrollable_frame, height=10, width=80, 
                                         font=self.custom_font, bg='white', fg='black')
         self.summary_box.pack(pady=10, padx=10)
-        
+
         # Bind mouse wheel event to the text box
         self.summary_box.bind("<MouseWheel>", self.on_mouse_wheel_textbox)
-        
+
         # Bind mouse wheel event to the window
         self.bind_all("<MouseWheel>", self.on_mouse_wheel_window)
         
@@ -153,6 +179,10 @@ class VTTAnalyzer(tk.Tk):
         
         print(), print("Widgets Created")
 
+
+    def update_label(self, event):
+        self.value_label.config(text=f"Slider Value: {int(self.slider.get())}")
+        # self.generate_openai_summary()
 
 
     def search_text(self, search_term, start_index='1.0'):
@@ -295,6 +325,8 @@ class VTTAnalyzer(tk.Tk):
         self.transcript_box.configure(state='disabled')
         print(), print("Transcript printed")
 
+
+
     def view_sentiment(self):
         """
         View the sentiment analysis
@@ -305,7 +337,7 @@ class VTTAnalyzer(tk.Tk):
         self.sentiment_label = tk.Label(self.scrollable_frame, text="Full sentiment analysis", font=self.custom_font)
         self.sentiment_label.pack(pady=[20,0], padx=10)
         
-        self.sentiment_box = ScrolledText(self.scrollable_frame, height=50, width=80, # Text Box for summaries
+        self.sentiment_box = ScrolledText(self.scrollable_frame, height=20, width=80, # Text Box for summaries
                                         bg='white', fg='black')
         self.sentiment_box.pack(pady=10, padx=10)
         
@@ -314,10 +346,12 @@ class VTTAnalyzer(tk.Tk):
         # Clear existing content
         self.sentiment_box.delete('1.0', tk.END)
         # Insert new text
-        self.sentiment_box.insert(tk.END, self.formatted_content)
+        self.sentiment_box.insert(tk.END, sentiment(self.df))
         # Disable the text box to prevent user edits
         self.sentiment_box.configure(state='disabled')
-        print(), print("Snetiment printed")
+        print(), print("Sentiment printed")
+
+
 
     def generate_ex_summary(self):
         """
@@ -367,13 +401,14 @@ class VTTAnalyzer(tk.Tk):
         """
         Generate a summary using an OpenAI model and print it.
         """
+        tokens = self.slider.get()
         # Check if the abstractive summary has already been generated
-        if self.ai is None:
-            # Split the text into chunks if not already done
-            # Generate an abstractive summary from the chunks
-            self.ai = summarize_text(self.formatted_content)
-            #debugging message to confirm the generation
-            print(), print("AI Summary Generated")
+        # if self.ai is None:
+        # Split the text into chunks if not already done
+        # Generate an abstractive summary from the chunks
+        self.ai = summarize_text(self.formatted_content, tokens)
+        #debugging message to confirm the generation
+        print(), print("AI Summary Generated")
         
         # Display the ai summary in the GUI
         self.insert_text(self.ai)
