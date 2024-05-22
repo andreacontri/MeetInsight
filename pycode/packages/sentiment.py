@@ -3,7 +3,7 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 import nltk
 
 # Download the required NLTK data
-nltk.download('vader_lexicon')
+# nltk.download('vader_lexicon')
 
 # Load the SpaCy model
 nlp = spacy.load("en_core_web_sm")
