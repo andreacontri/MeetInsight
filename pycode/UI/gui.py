@@ -4,8 +4,10 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter.scrolledtext import ScrolledText
 import tkinter.font as tkFont
+from tkinter.constants import *
 
 import warnings
+import traceback
 warnings.filterwarnings("ignore", category=FutureWarning) # remove future warnings for debugging
 
 # Import custom modules
@@ -14,14 +16,15 @@ from packages.timeline_generator import create_timeline_figure
 from packages.stats_generator import create_stats_figure
 from packages.chunk_splitter import split_text_into_chunks
 from packages.summaries import abstractive_summarize_chunks, extractive_summarize_chunks, format_vtt_as_dialogue
-from packages.openai import summarize_text
+from packages.openai import summarize_text, utility_text
 from packages.sentiment import sentiment
 
 # Window size
 window_width = 1200
 window_height = 800
 
-
+window_min_width = 800
+window_min_height = 600
 
 class VTTAnalyzer(tk.Tk):
 
@@ -33,6 +36,7 @@ class VTTAnalyzer(tk.Tk):
         self.title("VTT File Analyzer")
         self.geometry(f"{window_width}x{window_height}")
         # self.resizable(False, False)  # Make the window fixed in size
+        self.minsize(window_min_width, window_min_height)  # Set the minimum size of the window
         self.custom_font = tkFont.Font(family="Helvetica", size=12)  # Define the font
 
         self.style = ttk.Style()
@@ -60,9 +64,10 @@ class VTTAnalyzer(tk.Tk):
     def setup_scrollable_window(self):
         
         ##############################################################################################################   RED
+        # Create a container frame
         self.container = tk.Frame(self, bg='red')
         self.container.grid(sticky="nsew")
-        
+
         # Configure the main window grid to expand properly
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
@@ -70,38 +75,85 @@ class VTTAnalyzer(tk.Tk):
         # Configure the container grid to expand properly
         self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(1, weight=1)
-        ##############################################################################################################   YELLOW
 
+        ##############################################################################################################   YELLOW
         self.button_frame = tk.Frame(self.container, bg='yellow')
         self.button_frame.grid(row=0, column=0, sticky="ns", pady=10)
+
         ##############################################################################################################   LIGHTBLUE
+        self.content_frame = tk.Frame(self.container, bg='lightblue')
+        self.content_frame.grid(row=0, column=1, sticky="news", pady=10, columnspan=4)
+
+        self.upload_frame = tk.Frame(self.content_frame, bg='orange')
+        self.upload_frame.grid(row=0, column=0, sticky="n", pady=10, rowspan=1)
+
+
+        # Create the scrollable frame inside the content frame
+        self.scrollable_frame = ScrollableFrame(self.content_frame)
+        self.scrollable_frame.grid(row=1, column=0, sticky='nsew')
+        ##############################################################################################################   ORANGE
+        # self.scrollable_frame = VerticalScrolledFrame(self.content_frame)
+        # self.scrollable_frame.grid(row=1, column=0, sticky="ns", pady=10)
+    
+
+        # self.scrollable_frame = tk.Frame(self.content_frame, bg='purple')
+        # self.scrollable_frame.grid(row=1, column=0, sticky="n", pady=10)
         
-        self.content_frame = tk.Frame(self.container, bg = "lightblue")
-        self.content_frame.grid(row=0, column=1, sticky="nsew", pady=10)
-        ##############################################################################################################   LIGHTGREEN
+        # self.scrollbar = ttk.Scrollbar(self.scrollable_frame)
 
-        self.canvas = tk.Canvas(self.content_frame, bg='lightgreen')
-        self.scrollbar = ttk.Scrollbar(self.content_frame, orient="vertical", command=self.canvas.yview)
+        # #############################################################################################################   PURPLE
+        # self.canvas_frame = tk.Frame(self.content_frame, bg='purple')
+        # self.canvas_frame.grid(row=1, column=0, sticky="news", pady=10, columnspan=2)
 
-        self.scrollable_frame = ttk.Frame(self.canvas)
+        # ##############################################################################################################   LIGHTGREEN
+        # # Create a canvas and place it in the canvas_frame
+        # self.canvas = tk.Canvas(self.canvas_frame, bg='lightgreen')
+        # self.canvas.grid(row=0, column=0, sticky="ensw")
 
-        self.scrollable_frame.bind(
-            "<Configure>",
-            lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all"))
-        )
+        # # Create a vertical scrollbar linked to the canvas
+        # self.scrollbar = ttk.Scrollbar(self.canvas_frame, orient="vertical", command=self.canvas.yview)
+        # self.scrollbar.grid(row=0, column=1, sticky="ns")
 
-        self.window = self.canvas.create_window((0, 0), window=self.scrollable_frame,)
-        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+        # # Configure the canvas to use the scrollbar
+        # self.canvas.configure(yscrollcommand=self.scrollbar.set)
 
-        self.canvas.grid(row=0, column=0, sticky="nsew")
-        self.scrollbar.grid(row=0, column=1, sticky="ns")
+        # # Create a frame inside the canvas
+        # self.scrollable_frame = ttk.Frame(self.canvas_frame)
+        # self.scrollable_frame.grid(row=0, column=0, sticky="n", pady=10)
 
-        self.content_frame.grid_columnconfigure(0, weight=1)
-        self.content_frame.grid_rowconfigure(0, weight=1)
+        # # Create a window inside the canvas
+        # self.window = self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        # # Ensure the scroll region is updated whenever the size of the frame changes
+        # self.scrollable_frame.bind(
+        #     "<Configure>",
+        #     lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+        # )
 
-        self.create_buttons()
+        # # Ensure the scrollable frame width matches the canvas frame width
+        # self.canvas.bind("<Configure>", self.on_canvas_configure)
+
+        # # Make the content_frame expandable
+        # self.content_frame.grid_columnconfigure(0, weight=1)
+        # self.content_frame.grid_rowconfigure(1, weight=1)
+
+        # self.create_buttons()
+        # self.create_upload()
         self.create_widgets()
 
+    def create_upload(self):
+        self.upload_label = tk.Label(self.upload_frame, text="Please upload a VTT file:", 
+                                    foreground="green", font=self.custom_font)
+        self.upload_label.grid(row=0, column=0, pady=10, padx=10, sticky="n")
+
+        self.upload_button = tk.Button(self.upload_frame, text="Upload File", command=self.open_file, 
+                                    bg='#66c2a5', fg='white', font=self.custom_font)
+        self.upload_button.grid(row=1, column=0, pady=10, padx=10, sticky="nswe")
+
+
+    def on_canvas_configure(self, event):
+        # Update the scrollable_frame width to match the canvas width
+        canvas_width = event.width
+        self.canvas.itemconfig(self.window, width=canvas_width)
 
     def create_buttons(self):
         button_options = {
@@ -130,42 +182,52 @@ class VTTAnalyzer(tk.Tk):
                                            command=self.view_sentiment, **button_options)
         self.sentiment_button.grid(row=4, column=0, pady=10, padx=10, sticky="ew")
         
+        self.ai_utility_button = ttk.Button(self.button_frame, text="Show Key Decisions", state='disabled', 
+                                            command=self.generate_openai_utility, **button_options)
+        self.ai_utility_button.grid(row=5, column=0, pady=10, padx=10, sticky="ew")
         
+        # Create an Entry widget
+        self.prompt = tk.Entry(self.button_frame, state='disabled')
+        self.prompt.grid(row=6, column=0, pady=10, padx=10, sticky="ew")
+        
+        # Create a Button to trigger the get_text function
+        self.prompt_button = tk.Button(self.button_frame, text="Get Text", command=self.get_prompt)
+        self.prompt_button.grid(row=7, column=0, pady=10, padx=10, sticky="ew")
         
     def create_widgets(self):
-        self.upload_label = tk.Label(self.scrollable_frame, text="Please upload a VTT file:", 
+        self.upload_label = tk.Label(self.upload_frame, text="Please upload a VTT file:", 
                                     foreground="green", font=self.custom_font)
         self.upload_label.grid(row=0, column=0, pady=10, padx=10, sticky="n")
 
-        self.upload_button = tk.Button(self.scrollable_frame, text="Upload File", command=self.open_file, 
+        self.upload_button = tk.Button(self.upload_frame, text="Upload File", command=self.open_file, 
                                     bg='#66c2a5', fg='white', font=self.custom_font)
         self.upload_button.grid(row=1, column=0, pady=10, padx=10, sticky="nswe")
 
         self.summary_label = ttk.Label(self.scrollable_frame, text="Select Summary Length", style='TLabel')
-        self.summary_label.grid(row=2, column=0, pady=[20, 0], padx=10, sticky="w")
+        self.summary_label.grid(row=0, column=0, pady=[20, 0], padx=10, sticky="w")
 
         self.slider = ttk.Scale(self.scrollable_frame, from_=50, to_=1000, orient=tk.HORIZONTAL, length=250)
         self.slider.set(100)
-        self.slider.grid(row=3, column=0, pady=10, padx=10, sticky="ew")
+        self.slider.grid(row=1, column=0, pady=10, padx=10, sticky="ew")
 
         self.value_label = ttk.Label(self.scrollable_frame, text=f"Total words set to: {int(self.slider.get())}", style='TLabel')
-        self.value_label.grid(row=4, column=0, pady=10, padx=10, sticky="w")
+        self.value_label.grid(row=2, column=0, pady=10, padx=10, sticky="w")
 
         self.slider.bind("<Motion>", self.update_label)
 
         self.summary_box = ScrolledText(self.scrollable_frame, height=10, width=80, 
                                         font=self.custom_font, bg='white', fg='black')
-        self.summary_box.grid(row=5, column=0, pady=10, padx=10, sticky="ew")
+        self.summary_box.grid(row=3, column=0, pady=10, padx=10, sticky="ew")
 
         self.summary_label = ttk.Label(self.scrollable_frame, text="Summary", style='TLabel')
-        self.summary_label.grid(row=6, column=0, pady=[20, 0], padx=10, sticky="w")
+        self.summary_label.grid(row=4, column=0, pady=[20, 0], padx=10, sticky="w")
 
         self.summary_box = ScrolledText(self.scrollable_frame, height=10, width=80, 
                                         font=self.custom_font, bg='white', fg='black')
-        self.summary_box.grid(row=7, column=0, pady=10, padx=10, sticky="ew")
+        self.summary_box.grid(row=5, column=0, pady=10, padx=10, sticky="ew")
 
         self.summary_box.bind("<MouseWheel>", self.on_mouse_wheel_textbox)
-        self.bind_all("<MouseWheel>", self.on_mouse_wheel_window)
+        # self.bind_all("<MouseWheel>", self.on_mouse_wheel_window)
 
         
         # # Create an Entry widget for the search term
@@ -227,12 +289,12 @@ class VTTAnalyzer(tk.Tk):
 
 
 
-    def on_mouse_wheel_window(self, event):
-        """Handle mouse wheel event on the window"""
-        if event.delta > 0:
-            self.canvas.yview_scroll(-1, "units")
-        else:
-            self.canvas.yview_scroll(1, "units")
+    # def on_mouse_wheel_window(self, event):
+    #     """Handle mouse wheel event on the window"""
+    #     if event.delta > 0:
+    #         self.canvas.yview_scroll(-1, "units")
+    #     else:
+    #         self.canvas.yview_scroll(1, "units")
 
 
 
@@ -253,6 +315,8 @@ class VTTAnalyzer(tk.Tk):
                 self.ex_analyze_button.config(state='normal')
                 self.ab_analyze_button.config(state='normal')
                 self.ai_analyze_button.config(state='normal')
+                self.ai_utility_button.config(state='normal')
+                self.prompt.config(state="normal")
                 self.transcript_button.config(state='normal')
                 self.sentiment_button.config(state='normal')
                 
@@ -268,8 +332,12 @@ class VTTAnalyzer(tk.Tk):
                 
 
             except Exception as e:
-                # Handle exceptions by showing an error message and updating the UI
-                messagebox.showerror("Error", str(e))
+                # Capture and print the traceback for detailed error information
+                error_message = traceback.format_exc()
+                print(error_message)
+                
+                # Show a message box with the error
+                # messagebox.showerror("Error", f"An error occurred while loading the file:\n{error_message}")
                 self.upload_label.config(text="Failed to load file.")
 
 
@@ -419,6 +487,31 @@ class VTTAnalyzer(tk.Tk):
 
 
 
+    def generate_openai_utility(self):
+        """
+        Generate a summary using an OpenAI model and print it.
+        """
+        # tokens = self.slider.get()
+        # Check if the abstractive summary has already been generated
+        # if self.ai is None:
+        # Split the text into chunks if not already done
+        # Generate an abstractive summary from the chunks
+        self.utility = utility_text(self.formatted_content)
+        #debugging message to confirm the generation
+        print(), print("AI Utility Generated")
+        
+        # Display the ai summary in the GUI
+        self.insert_text(self.utility)
+
+
+
+    # Get the text from the Entry widget
+    def get_prompt(self):
+        text = self.prompt.get()
+        print("You entered:", text)
+
+
+
     def show_plot(self, plot_function):
         """
         Display a matplotlib plot in the GUI. This method generates a plot using a provided function and
@@ -437,7 +530,7 @@ class VTTAnalyzer(tk.Tk):
         self.canvas_widget.draw()
         self.canvas_widget.get_tk_widget().grid(row=8, column=0, pady=10, padx=10, sticky="ew")
         # Update the scroll region to include the new plot
-        self.update_scroll_region()
+        # self.update_scroll_region()
 
 
 
@@ -452,3 +545,40 @@ class VTTAnalyzer(tk.Tk):
         # Adjust the scroll region to fit the new size of the content
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
+
+
+
+class ScrollableFrame(tk.Frame):
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+
+        # Create a canvas
+        self.canvas = tk.Canvas(self)
+        self.canvas.grid(row=0, column=0, sticky='nsew')
+
+        # Create a vertical scrollbar linked to the canvas
+        self.v_scrollbar = ttk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
+        self.v_scrollbar.grid(row=0, column=1, sticky='ns')
+
+        # Create a horizontal scrollbar linked to the canvas (optional)
+        self.h_scrollbar = ttk.Scrollbar(self, orient="horizontal", command=self.canvas.xview)
+        self.h_scrollbar.grid(row=1, column=0, sticky='ew')
+
+        # Configure the canvas to use the scrollbars
+        self.canvas.configure(yscrollcommand=self.v_scrollbar.set, xscrollcommand=self.h_scrollbar.set)
+
+        # Create a frame inside the canvas
+        self.scrollable_frame = ttk.Frame(self.canvas)
+        self.scrollable_frame.bind(
+            "<Configure>",
+            lambda e: self.canvas.configure(
+                scrollregion=self.canvas.bbox("all")
+            )
+        )
+
+        # Add the scrollable frame to the canvas
+        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+
+        # Make the canvas expandable
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
