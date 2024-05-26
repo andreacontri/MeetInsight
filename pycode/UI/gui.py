@@ -20,7 +20,7 @@ from packages.openai import summarize_text, utility_text
 from packages.sentiment import sentiment
 
 # Window size
-window_width = 1200
+window_width = 1400
 window_height = 800
 
 window_min_width = 800
@@ -96,11 +96,11 @@ class VTTAnalyzer(tk.Tk):
         # self.scrollable_frame.grid(row=1, column=0, sticky="ns", pady=10)
     
 
-        # self.scrollable_frame = tk.Frame(self.content_frame, bg='purple')
-        # self.scrollable_frame.grid(row=1, column=0, sticky="n", pady=10)
+        self.scrollable_frame = tk.Frame(self.content_frame, bg='purple')
+        self.scrollable_frame.grid(row=1, column=0, sticky="n", pady=10)
         
-        # self.scrollbar = ttk.Scrollbar(self.scrollable_frame)
-
+        self.scrollbar = ttk.Scrollbar(self.scrollable_frame)
+        self.scrollbar.grid(row=0, column=1, sticky="ns")
         # #############################################################################################################   PURPLE
         # self.canvas_frame = tk.Frame(self.content_frame, bg='purple')
         # self.canvas_frame.grid(row=1, column=0, sticky="news", pady=10, columnspan=2)
@@ -136,7 +136,7 @@ class VTTAnalyzer(tk.Tk):
         # self.content_frame.grid_columnconfigure(0, weight=1)
         # self.content_frame.grid_rowconfigure(1, weight=1)
 
-        # self.create_buttons()
+        self.create_buttons()
         # self.create_upload()
         self.create_widgets()
 
@@ -215,18 +215,17 @@ class VTTAnalyzer(tk.Tk):
 
         self.slider.bind("<Motion>", self.update_label)
 
-        self.summary_box = ScrolledText(self.scrollable_frame, height=10, width=80, 
+        self.ai_box = ScrolledText(self.scrollable_frame, height=10, width=80, 
                                         font=self.custom_font, bg='white', fg='black')
-        self.summary_box.grid(row=3, column=0, pady=10, padx=10, sticky="ew")
+        self.ai_box.grid(row=3, column=0, pady=10, padx=10, sticky="ew")
 
-        self.summary_label = ttk.Label(self.scrollable_frame, text="Summary", style='TLabel')
+        self.ai_label = ttk.Label(self.scrollable_frame, text="Summary", style='TLabel')
         self.summary_label.grid(row=4, column=0, pady=[20, 0], padx=10, sticky="w")
 
         self.summary_box = ScrolledText(self.scrollable_frame, height=10, width=80, 
                                         font=self.custom_font, bg='white', fg='black')
         self.summary_box.grid(row=5, column=0, pady=10, padx=10, sticky="ew")
 
-        self.summary_box.bind("<MouseWheel>", self.on_mouse_wheel_textbox)
         # self.bind_all("<MouseWheel>", self.on_mouse_wheel_window)
 
         
