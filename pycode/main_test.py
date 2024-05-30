@@ -1,5 +1,5 @@
 import tkinter as tk
-from UI.ui_test import VTTAnalyzer
+from UI.gui import VTTAnalyzer
 
 if __name__ == "__main__":
     app = VTTAnalyzer()

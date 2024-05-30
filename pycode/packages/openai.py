@@ -6,7 +6,7 @@ API_KEY = os.environ["OPENAI_API_KEY"]
 
 import requests
 
-def summarize_text(text, tokens):
+def summarize_text(text, tokens = 100):
     """
     Utilize the OpenAI API to generate a summary of the provided text. This function makes an HTTP POST request
     to the OpenAI API endpoint to process the text summarization task.
@@ -23,7 +23,7 @@ def summarize_text(text, tokens):
         "Content-Type": "application/json",
         "Authorization": f"Bearer {API_KEY}"
     }
-    print(int(tokens))
+    # print(int(tokens))d
     # Construct the data payload for the API request
     data = {
         "model": "gpt-3.5-turbo",

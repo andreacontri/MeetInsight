@@ -47,8 +47,8 @@ def format_VTT(file_path):
     with open("data/formatted_output.vtt", "w", encoding="utf-8") as file:
         file.write(formatted_content)
 
-    formatted_output = 'data/formatted_output.vtt'
 
+    formatted_output = 'data/formatted_output.vtt'
     print(), print("Formatted .vtt file saved as '" + formatted_output + "'.")
 
     start=[]

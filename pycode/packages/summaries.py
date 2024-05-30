@@ -66,7 +66,7 @@ def extractive_summarize_chunks(chunks: List[str], sentences_count: int = 1) -> 
         summaries.append(summarized_text)
     
     # Combine all summaries into one final text
-    final_summary = " ".join(summaries)
+    final_summary = "".join(summaries)
     return final_summary
 
 def format_vtt_as_dialogue(text):

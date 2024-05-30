@@ -1,0 +1,705 @@
+[
+    {
+        "file_name": "IS1009c.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "So a remote can be th can be uh designed which can have the voice recognisers, you can record your own voice which can be recognised by as voice recogniser in the television, for example, if you want to see we if you want to see the ninth channel if you say just say ninth channel, uh th now the the uh yeah, the remote will automatically it will switch to the ninth channel.",
+                "time_taken": 0.18271851539611816,
+                "computational_intensity": 129477.84710658071
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:So this is No this is a very big, you cannot misplace it anywhere.\n\n",
+                    "Negative sentiment towards the other person detected:No, no, no, th the the the scrolling wheels are different, like you can go for a sw switches like buttons or scrolls, uh which which we used to do before ten ten years before, I think.\n\n"
+                ],
+                "time_taken": 0.16955971717834473,
+                "computational_intensity": 139526.06428988237
+            },
+            "ai_summarization": {
+                "result": "In this meeting, three team members presented their ideas for a new remote control design. The marketing manager emphasized the need for a simple, attractive, and easy-to-use remote. The technical manager focused on the components and technical aspects of the remote, including the use of infra-red bits and interface controls. The interface designer proposed incorporating features like voice recognition and child locks. The team discussed various aspects of the remote, including energy source, user interface design, and product evaluation. They agreed on using a battery as the energy source and discussed the need for a bright, colourful, trendy, compact, and strong design. The team decided to work on a prototype using modelling clay and will reconvene in thirty minutes to continue the discussion.",
+                "time_taken": 3.9725241661071777,
+                "computational_intensity": 5955.407446440619
+            },
+            "utility": {
+                "result": "Key points:\n1. The need for a remote control that is attractive, user-friendly, and easy to use.\n2. Different features suggested for the remote control, such as voice recognition, channel lock, and an alarm clock.\n3. Different components required for the remote control, such as a case, integrated circuit, battery, and circuit board.\n4. Different design options for the remote control, including T-shape, child-friendly design, and jumbo universal design.\n5. Discussion on energy sources, user interface concepts, and supplements for the remote control.\n6. Decision-making process on the concept of the remote control, including energy source, chip on print, case design, and user interface design.\n\nKey decisions:\n1. Use a battery as the energy source for the remote control.\n2. Incorporate a chip on print for the remote control.\n3. Design the case to be bright, colorful, trendy, compact, and strong.\n4. Work on the user interface design and supplements for the remote control prototype.\n5. Collaborate on creating a prototype using modelling clay for further development.",
+                "time_taken": 5.14291787147522,
+                "computational_intensity": 4600.112346964977
+            },
+            "key_points": {
+                "result": "key_points_extraction",
+                "time_taken": 0.1001896858215332,
+                "computational_intensity": 236132.09090346622
+            }
+        }
+    },
+    {
+        "file_name": "ES2015a.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Um, the way that we're going to go about this is, um, we'll have a time where we can, um come up with new ideas alone, and, and work on the project and then, um, after we've brainstormed and, and thought about, we can come together in a meeting and, and discuss what, what um, what kind of functional design we want to use.",
+                "time_taken": 0.167311429977417,
+                "computational_intensity": 75464.0612521464
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:You can press a button on your wall, signal, 'cause it always gets lost.\n\n",
+                    "Negative sentiment towards the other person detected:I find that in the dark it's often hard to know what button you're pushing.\n\n"
+                ],
+                "time_taken": 0.20019030570983887,
+                "computational_intensity": 63069.987106670684
+            },
+            "ai_summarization": {
+                "result": "The meeting was led by Heather, the Project Manager, who introduced the team members and outlined the goals for the project of designing a new television remote control. Poppy, the Industrial Designer, discussed her role in the design process, while Genevieve, the Marketing Expert, talked about user requirements. Tara, the User Interface Designer, shared her thoughts on the project. The team brainstormed ideas for the remote control design, including making it user-friendly and marketable. They also discussed budget and international market considerations. The meeting ended with plans for the next steps in the design process.",
+                "time_taken": 2.807321071624756,
+                "computational_intensity": 4497.526174550679
+            },
+            "utility": {
+                "result": "Key points:\n1. Introduction of team members and their roles: Poppy - Industrial Designer, Genevieve - Marketing Expert, Tara - User Interface Designer, Heather - Project Manager\n2. Discussion of the project - creating a new television remote control that is marketable, user-friendly, and trendy\n3. Tool training and team-building exercise using a whiteboard to draw favorite animals and discuss their characteristics\n4. Financial goals - selling price of 25 Euros, target profit of 50 million Euros, maximum production cost of 12.50 Euros\n5. Brainstorming ideas for the design of the remote control, including potential improvements and unique features\n6. Instructions for the next steps - Industrial Designer to work on functional design, User Interface Designer to work on technical functions design, Marketing Expert to gather user requirements\n\nKey decisions:\n1. Setting a selling price of 25 Euros and target profit of 50 million Euros\n2. Maximum production cost of 12.50 Euros\n3. Focus on creating a trendy and original remote control design\n4. Industrial Designer to work on functional design, User Interface Designer to work on technical functions design, Marketing Expert to gather user requirements\n5. Next meeting in half an hour to present ideas and progress made in the project.",
+                "time_taken": 5.000965595245361,
+                "computational_intensity": 2524.71242993635
+            },
+            "key_points": {
+                "result": "key_points_extraction",
+                "time_taken": 0.10034656524658203,
+                "computational_intensity": 125823.93795915264
+            }
+        }
+    },
+    {
+        "file_name": "IS1009c.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "So a remote can be th can be uh designed which can have the voice recognisers, you can record your own voice which can be recognised by as voice recogniser in the television, for example, if you want to see we if you want to see the ninth channel if you say just say ninth channel, uh th now the the uh yeah, the remote will automatically it will switch to the ninth channel.",
+                "time_taken": 0.1909017562866211,
+                "computational_intensity": 123927.61837392281
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:So this is No this is a very big, you cannot misplace it anywhere.\n\n",
+                    "Negative sentiment towards the other person detected:No, no, no, th the the the scrolling wheels are different, like you can go for a sw switches like buttons or scrolls, uh which which we used to do before ten ten years before, I think.\n\n"
+                ],
+                "time_taken": 0.16074776649475098,
+                "computational_intensity": 147174.67319070044
+            },
+            "ai_summarization": {
+                "result": "In the meeting, the participants discussed the design of a new remote control. The marketing manager emphasized the need for a simple, attractive, and easy-to-use product. The technical manager focused on the components of the remote, such as the chip, battery, and wires. The interface designer suggested incorporating features like voice recognition and child locks. The group also discussed the energy source, design, and user interface of the remote. They agreed to work on a prototype using modelling clay and to reconvene in thirty minutes to continue the discussion. The meeting concluded with individual actions assigned to each participant.",
+                "time_taken": 2.9493255615234375,
+                "computational_intensity": 8021.494916885254
+            },
+            "utility": {
+                "result": "Key points and key decisions made in this transcript:\n1. The need for a remote control that is simple to use, attractive, and easy to market within a budget.\n2. Components of the remote control including buttons, bulbs, battery, chips, wires, and a holder.\n3. Features such as an on-off button, channel lock, T-shaped design, alarm clock, and non-allergic material.\n4. Different systems like infrared or radio waves, energy-saving features, and a timer for programming favorite shows.\n5. Presentations on interface design, component design, and concept of the remote control.\n6. Decision-making on the concept of the remote control including energy source, chip on print, case design, user interface type, and supplements.\n7. Next steps include creating a prototype using modelling clay and specific instructions from coaches.",
+                "time_taken": 4.193603515625,
+                "computational_intensity": 5641.448914245794
+            },
+            "key_points": {
+                "result": "key_points_extraction",
+                "time_taken": 0.10006308555603027,
+                "computational_intensity": 236430.8462859934
+            }
+        }
+    },
+    {
+        "file_name": "IS1004d.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Well then you can you you have like a little uh number selection thing, you press the the the teletext button uh to move between uh the fields and then you can just scroll the number back and forth so you have s you go you scroll to seven and then zero zero and then you can uh Well you can you can press press the teletext button and then you then you can you can f Mm uh And this is the uh the infrared uh port.",
+                "time_taken": 0.504488468170166,
+                "computational_intensity": 51965.50893440291
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:And you said the lowest.\n\n",
+                    "Negative sentiment towards the other person detected:No but it's really handy actually if you see.\n\n",
+                    "Negative sentiment towards the other person detected:Well when you stop scrolling the wheel it stops.\n\n",
+                    "Negative sentiment towards the other person detected:I'd give it a six like I'd I think it's probably more handy than my current remote, 'cause of the scroll wheels but maybe loses the point for not having you know the extra buttons when you reall if you do need them for some reason but you know you can always use your other remote.\n\n",
+                    "Negative sentiment towards the other person detected:It's not very promising but you know we're not young trendsetters.\n\n",
+                    "Negative sentiment towards the other person detected:I think it it kind of you just lose information if you sum it, so.\n\n",
+                    "Negative sentiment towards the other person detected:Well no didn't we say we wanted to do a rubber if you drop it?\n\n",
+                    "Negative sentiment towards the other person detected:Ah yeah yeah an then you stop when you stop it stops.\n\n",
+                    "Negative sentiment towards the other person detected:No no you say five, he is the outlier.\n\n"
+                ],
+                "time_taken": 0.26858973503112793,
+                "computational_intensity": 97606.11289542292
+            },
+            "ai_summarization": {
+                "result": "In this meeting, the team discussed the final design of a banana-shaped remote control. They presented a prototype with scroll wheels and buttons, discussed the use of solar cells and batteries for power, and evaluated the product based on criteria like functionality, price, and appeal. They calculated production costs and made adjustments to stay within budget. They also discussed future ideas for research and evaluation, such as conducting street surveys to gauge public interest in the product. Overall, the team concluded the meeting with plans to move forward with the project and create a real prototype for further evaluation.",
+                "time_taken": 3.20914626121521,
+                "computational_intensity": 8169.150878798764
+            },
+            "utility": {
+                "result": "Key Points:\n1. Decision to create a banana-shaped remote control with scroll wheels and buttons.\n2. Use of solar cells and rechargeable batteries for power source.\n3. Presentation of prototype with turbo button, teletext button, and infrared port.\n4. Evaluation of criteria including fancy, cool features, and price.\n5. Financial evaluation to ensure cost is below 12.5 Euros.\n6. Consideration of additional components like dynamo and special colors.\n7. Discussion on potential market appeal and target demographics.\n8. Suggestions for future improvements like focus groups and simplified design.\n9. Budget analysis to ensure costs are within limits.\n10. Consideration of potential additional features like radio frequency technology.\n11. Discussion on satisfaction and future ideas for evaluation and improvement.",
+                "time_taken": 4.001319646835327,
+                "computational_intensity": 6551.838471773787
+            },
+            "key_points": {
+                "result": "key_points_extraction",
+                "time_taken": 0.10015559196472168,
+                "computational_intensity": 261752.73377880084
+            }
+        }
+    },
+    {
+        "file_name": "TS3012d.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Yeah, more communication between between uh that's the thing I noticed, that communication is very um very important, because if you get new information, it's essential f for the other team-mates to know that as soon as possible, because you would avoid making doing extra work, because you were doing extra work now uh m working on the on the speech recognition, you have limitation both on the technical on the d on the design side.",
+                "time_taken": 0.7072393894195557,
+                "computational_intensity": 48899.99131465758
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:If you put them all black, it's not really that good a contrast.\n\n",
+                    "Negative sentiment towards the other person detected:But what do you then suggest we'd lose?\n\n",
+                    "Negative sentiment towards the other person detected:I think the L_C_D_ display could be a little bit more difficult then a normal remote control, but then again, it's for young people.\n\n",
+                    "Negative sentiment towards the other person detected:Nee no, you just go ahead and present the w we'll scrap it later because What?\n\n",
+                    "Negative sentiment towards the other person detected:I think you that's what you were ass assigned to do really, to to see how b th both those work together.\n\n",
+                    "Negative sentiment towards the other person detected:I think it's it it does ruin it, but the fact that I t took that decision or t Took this example actually, not really decision, but the example is because we do offer the um the possibility of adding your own custom covers.\n\n",
+                    "Negative sentiment towards the other person detected:we could make it yellow then, but You second that, you second that we lose the curve.\n\n",
+                    "Negative sentiment towards the other person detected:I mean, was kind of I sort of expected that everything would turn out this way, but because you yeah, everything cannot be for free.\n\n",
+                    "Negative sentiment towards the other person detected:Because if it's stuck in you couch, you can see the light.\n\n",
+                    "Negative sentiment towards the other person detected:It's possible, but you have to pay extra for the for the possibility of having it in a f a different colour.\n\n",
+                    "Negative sentiment towards the other person detected:'Cause yeah, that gives you a seven, which ruins your your average.\n\n",
+                    "Negative sentiment towards the other person detected:Say, look, this is you're doing the wrong thing, you're s you're wasting your time now, because we're implementing stuff that we cannot afford.\n\n",
+                    "Negative sentiment towards the other person detected:No, you don't have to.\n\n",
+                    "Negative sentiment towards the other person detected:No, you don't.\n\n",
+                    "Negative sentiment towards the other person detected:So I'd I had no extra information to go on that one than what you give me actually.\n\n",
+                    "Negative sentiment towards the other person detected:Uh I'm not sure what we should still do though uh t let's see what all your tasks were finished, right?\n\n"
+                ],
+                "time_taken": 0.33678388595581055,
+                "computational_intensity": 102688.99861954135
+            },
+            "ai_summarization": {
+                "result": "The meeting discussed the final design of a remote control, with a focus on rubber material, yellow and black colors, and an LCD display. The team had to make cost-cutting decisions, ultimately deciding to remove speech recognition and special colors to stay within budget. The team evaluated the product based on user requirements, with a final score of two. The meeting highlighted the importance of communication and the need for more efficient use of the LCD display. The team also brainstormed a product name, settling on \"Triple R\" as a catchy and fitting option. The meeting concluded with a plan to finalize the report and adjourn.",
+                "time_taken": 3.0877223014831543,
+                "computational_intensity": 11200.489105962653
+            },
+            "utility": {
+                "result": "Key Points:\n1. Final design of the remote control discussed, including materials, colors, and buttons.\n2. Decision to scrap speech recognition feature due to budget constraints.\n3. Decision to keep rubber material and yellow color for the remote control.\n4. Discussion about the use of the LCD screen and its functionality.\n5. Evaluation of the project based on user requirements and overall score.\n6. Decision to name the product as \"Triple R\" or \"Real Reactor Remote Control.\"\n\nKey Decisions:\n1. Scrap speech recognition feature to stay within budget.\n2. Keep rubber material and yellow color for the remote control.\n3. Keep the curve design of the remote control.\n4. Offer custom covers in black for additional customization options.\n5. Name the product as \"Triple R\" or \"Real Reactor Remote Control.\"\n6. Celebrate the success of staying within budget and completing the project.",
+                "time_taken": 4.317658185958862,
+                "computational_intensity": 8009.897613587865
+            },
+            "key_points": {
+                "result": "key_points_extraction",
+                "time_taken": 0.10773754119873047,
+                "computational_intensity": 321002.3137265316
+            }
+        }
+    },
+    {
+        "file_name": "ES2004a.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Actually that just raises a point, I wonder what our design people think, but you know on a mobile phone, you can press a key and it gives you a menu, it's got a menu display, I wonder if incorporating that into the design of a remote control might be useful, so you've got a little L_C_D_ display.",
+                "time_taken": 0.2792949676513672,
+                "computational_intensity": 49231.10543532449
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:I mean I've got we got um we had three videos, a T_V_ and a sort of amp thing all set up so we got one of the universal remote controls, um that you programme each of your things into, but that kept losing the signals so we'd have to re-programme it every now and again.\n\n",
+                    "Negative sentiment towards the other person detected:That's my dreadful that's the worst yet, that's it's meant to be an eagle you can tell it's a flying animal could have been a seagull, I never thought of a seagull.\n\n",
+                    "Negative sentiment towards the other person detected:So that's a problem regardless of of any design modifications you you come up with, that's gonna be a problem anyway with the older generation perhaps, and that's another issue how we tackle that.\n\n",
+                    "Negative sentiment towards the other person detected:And there's no reason we need to make it look as fashionable and stylish as a mobile phone, it can still be lightweight plastic, you know?\n\n"
+                ],
+                "time_taken": 0.20314955711364746,
+                "computational_intensity": 67684.12491447308
+            },
+            "ai_summarization": {
+                "result": "The meeting discussed the development of a remote control, focusing on making it original, user-friendly, and appealing to a wide market. The team shared their ideas on functional, conceptual, and detailed design, as well as financial aspects like pricing and production costs. They also discussed the usability for different age groups, including the older generation, and suggested incorporating features like an LCD display and large print options. The team brainstormed ideas to make the remote control stylish yet affordable, considering plastic as a material. Overall, the meeting aimed to gather input from team members and generate innovative ideas for the project.",
+                "time_taken": 3.6223254203796387,
+                "computational_intensity": 3795.9041235336963
+            },
+            "utility": {
+                "result": "Key points:\n1. Discussion on the unique features of dogs.\n2. Presentation of agenda for a project meeting.\n3. Discussion on the development of a remote control.\n4. Pricing and profit goals for the remote control.\n5. Consideration of user-friendliness for all age groups.\n6. Ideas for design features such as an LCD display and flip top.\n7. Consideration of cost implications for design choices.\n8. Discussion on the usability and design of remote controls.\n9. Ideas for accommodating older generations in the design.\n10. Consideration of fashion and style in the design process.\n\nKey decisions:\n1. To focus on user-friendliness for all age groups in the remote control design.\n2. To consider incorporating an LCD display and flip top design feature.\n3. To explore options for accommodating older generations in the design.\n4. To prioritize usability and intuitive design features in the remote control design.\n5. To consider cost implications and material choices in the design process.",
+                "time_taken": 4.876020908355713,
+                "computational_intensity": 2819.922280570524
+            },
+            "key_points": {
+                "result": "key_points_extraction",
+                "time_taken": 0.10042142868041992,
+                "computational_intensity": 136922.96734552397
+            }
+        }
+    },
+    {
+        "file_name": "IS1008b.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "So uh, I also, since we have to establish our corporate image on the basis of this new product, thought we better look at things that are popular and um ex go beyond those, and, as I said in the first meeting, um and then uh we might wanna talk eventually about the materials that are appropriate to use in uh in the construction, especially in the the uh the outside of the product so that it gives the appearance, and it is reliable, and so forth.",
+                "time_taken": 0.5493693351745605,
+                "computational_intensity": 41145.361695183885
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:No, I haven't really um I wanted feedback, I think we need to rate rank these, but we'll see what your uh personal preferences are and your thoughts.\n\n"
+                ],
+                "time_taken": 0.2677586078643799,
+                "computational_intensity": 84419.32149366775
+            },
+            "ai_summarization": {
+                "result": "The meeting discussed the functional design of a new project, focusing on remote control functions. Various features were proposed, including speech recognition and unbreakable materials. The marketing team emphasized the importance of establishing a corporate image and pricing strategy. The user interface team outlined key functionalities and design preferences, such as simplicity and ease of use. Suggestions were made for incorporating user feedback and considering practicality in design decisions. The meeting concluded with a plan to prioritize features and take further action on design concepts. Overall, the team aimed to create a unique and user-friendly remote control product.",
+                "time_taken": 3.527857542037964,
+                "computational_intensity": 6407.288199892045
+            },
+            "utility": {
+                "result": "Key Points:\n1. The meeting is about discussing the functional design meeting and gathering information from all participants.\n2. The agenda includes project management, new project requirements, decision on remote control functions, and establishing marketing or corporate image.\n3. Suggestions were made to add features like unbreakable material and speech recognition to the remote control design.\n4. Discussions were held on the pricing strategy, user requirements, and design preferences.\n5. Considerations were made for the user interface design, including the need for simplicity, clear functionality, and user-friendly features.\n6. Ideas were presented for innovative features such as a flexible and inflatable remote control that changes in size based on user preference.\n7. The importance of finding the remote control easily, waterproof design, and battery life were highlighted.\n8. Recommendations were made for incorporating speech recognition, training for users, and options for wireless charging or solar power.\n9. The need for collaboration and alignment between research findings and design concepts was emphasized.\n10. Action items were identified for further development and decision-making after the meeting.\n\nKey Decisions:\n1. To consider adding features like unbreakable material and speech recognition to the remote control design.\n2. To explore innovative design concepts such as a flexible and inflatable remote control.\n3. To prioritize user requirements, simplicity, and user-friendly features in the design process.\n4. To research options for wireless charging or solar power to enhance the remote control's functionality.\n5. To collaborate and align research findings with design concepts for a comprehensive approach to product development.",
+                "time_taken": 6.800808906555176,
+                "computational_intensity": 3323.7222675397356
+            },
+            "key_points": {
+                "result": "key_points_extraction",
+                "time_taken": 0.10057234764099121,
+                "computational_intensity": 224753.62791260006
+            }
+        }
+    },
+    {
+        "file_name": "IS1005b.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "So, I know that uh the user interface people and these speak about radio frequency waves because you can you can uh you can make the T_V_ do what you want even if you are in the bathroom or so on, but you know, when you are not close to the T_V_ you probably won't need to to change the program and so on and so I am I am voting for s to stick to the um infra-red control instead of R_W_ but we will discuss it later maybe.",
+                "time_taken": 0.19826412200927734,
+                "computational_intensity": 135647.33612640997
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:Um they, you know, seventy five percent of the people we we uh did the experiments on, found that rem remote the remote controls that they'd used in the past were ugly.\n\n",
+                    "Negative sentiment towards the other person detected:Um and then thirdly, they some users commented on the fact that the the you know the way that you have to hold and press buttons on a remote control ar are bad and um cause u repetitive strain injury.\n\n",
+                    "Negative sentiment towards the other person detected:Because you cancelled it.\n\n"
+                ],
+                "time_taken": 0.16948628425598145,
+                "computational_intensity": 158679.5068288888
+            }
+        }
+    },
+    {
+        "file_name": "IS1009b.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "So I I just would like to uh add some extra features to the remote controller um I think these are the very simple features and uh they don't take much uh uh much of the um um investment also, it's like el the text or buttons which uh which are there on the uh remote controller they those we can make uh um like fluorescent uh they'll be like light emitting if it is dark so that you can find your remote controller if it is dark.",
+                "time_taken": 0.1793220043182373,
+                "computational_intensity": 176263.9232155037
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:Yeah, a little elderly, a little arthritic hand you know, and and it's a small button and and it they don't press it exactly you know something else happens n not their favourite channel comes up but something else and they're very frustrated you know.\n\n",
+                    "Negative sentiment towards the other person detected:No The the quest the question to be addressed here is only who is the target group and how will it function, and I think the how will it function is probably the question of the buttons you know, within the target group or subgroups.\n\n",
+                    "Negative sentiment towards the other person detected:That's right, and but like if if then everybody is is is tired of the fluorescent blue and of the striped or whatever they have as another one in the package, then they can go to the store and for a few uh Francs or Euros whatever they can buy an alternate package with another two colours in it you know for example you know.\n\n",
+                    "Negative sentiment towards the other person detected:So I'll be coming to you um frequently as the Industrial Expert to tell me how hard it's gonna be to add a feature or how expensive it's gonna be or if your time, if it takes five years to develop this it's just something we can't do.\n\n",
+                    "Negative sentiment towards the other person detected:If somebody says, oh I'll come back and get it next week you're dead.\n\n",
+                    "Negative sentiment towards the other person detected:And ther there should be a beep if many buttons are pressed if suppose a child is playing with the remote controller and a and she she or he is pressing the buttons all at the time then there should be a beep saying that it's this this is not a a you know a a action, there can be no action taking to that so.\n\n"
+                ],
+                "time_taken": 0.1847059726715088,
+                "computational_intensity": 171126.03097146944
+            }
+        }
+    },
+    {
+        "file_name": "TS3008d.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "The simple chip is e enough I I think, but with the lights with the lights and the retrieval, it can be uh No, uh I Yes, my my my uh The the email I got said uh simple chip, but when we put in the speaker and the retriever uh device, it will uh cost a a bit more, like I think the advanced chip maybe.",
+                "time_taken": 0.22163176536560059,
+                "computational_intensity": 192571.67369305427
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:That's just a signal to recei ju they send a t signal to the v tv T_V_ that they have to put a one in on your screen and a dash, which you can pu so you can uh still put another number on it.\n\n",
+                    "Negative sentiment towards the other person detected:It's so if maybe a lot of people find it really ugly, you know, o other people find it really cool.\n\n",
+                    "Negative sentiment towards the other person detected:Was it I think it was uh your job in the first uh meet Uh, f your first presentation to make this clear, but then you had some t time problems.\n\n",
+                    "Negative sentiment towards the other person detected:I mean if you u The uh it's made for s people well, the they don't if it was uh uh r useless technology, they wouldn't put it uh as a possibility.\n\n",
+                    "Negative sentiment towards the other person detected:Yeah, and it is also not a good it's not you have to really do it only kinetic, you don't want it to think about batteries anymore.\n\n",
+                    "Negative sentiment towards the other person detected:Okay, then we d Okay, well y we don't have to do it, but what that would just have a lack of key features, you know.\n\n",
+                    "Negative sentiment towards the other person detected:No No, it it it works uh if you haven't got uh a special button for it, uh if you push a one, then on your television there will appear a one and a a line, which is an empty space.\n\n",
+                    "Negative sentiment towards the other person detected:No, s some some televisions need the input first uh and and you c No, that's not true.\n\n",
+                    "Negative sentiment towards the other person detected:I mean Wi wi without recharge Yeah, but but we can make a docking station for two Euros uh if you don't put the recharge function in it.\n\n",
+                    "Negative sentiment towards the other person detected:No, for for the uh for the docking station if you do if you choose the simple chip.\n\n",
+                    "Negative sentiment towards the other person detected:Uh, some N some televisions when when you want to go further than uh ten No, you have to you have to uh give the television uh two or more signals.\n\n",
+                    "Negative sentiment towards the other person detected:Yes, but when you put that same volt voltages on it, you can put uh when the when the when uh o the the the lowest part of it, when it's o the same as the other products, you can put it all on the same uh Yes, but we can make No, we can make uh make the most lowest part all the same.\n\n",
+                    "Negative sentiment towards the other person detected:Just have to be big enough for the biggest No, when you make it large enough no it it will not.\n\n",
+                    "Negative sentiment towards the other person detected:But you can't make a remote control without them, because Yes.\n\n",
+                    "Negative sentiment towards the other person detected:No, it's only uh when you use push-buttons, it will cost that much.\n\n",
+                    "Negative sentiment towards the other person detected:No, but you otherwise you can't retrieve it.\n\n",
+                    "Negative sentiment towards the other person detected:Yes, but when it's then when it then you have to shake it uh and all when it's when it's empty.\n\n",
+                    "Negative sentiment towards the other person detected:Well it yeah, uh there's nothing I think it's pretty basic, the the there's no fu there's one there's one button, that's wha there's there's there's one function and that's n the one button when you want to find it.\n\n"
+                ],
+                "time_taken": 0.19285893440246582,
+                "computational_intensity": 221301.64792331398
+            }
+        }
+    },
+    {
+        "file_name": "IS1003d.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "And so So what we w what I can add is that, you know he talk about what is outside, so what is inside is what we dis what we talked before about, you know, the chip, it is a low level chip, and You know, we don't need to k. You know wi the low level chips inside and you know the L_C_D_ button and the i The battery it is under.",
+                "time_taken": 0.21408987045288086,
+                "computational_intensity": 142832.5400698028
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:Chan Yeah, okay, but don't touch don't destroy your prototype.\n\n",
+                    "Negative sentiment towards the other person detected:Do you think it won't be It won't cris increase the price?\n\n",
+                    "Negative sentiment towards the other person detected:Yeah, but we have you the the voice recognition, no?\n\n",
+                    "Negative sentiment towards the other person detected:So you got how many degree you you it No no, you don't have to y no it's uh when you when you stop t uh when you stop, the the turn, then the angle you stop is the angle you is the channel you It's it's very easy, because you kn you know how many channel are there in the Yeah, yeah, yeah.\n\n",
+                    "Negative sentiment towards the other person detected:So you you count one degree, two degrees, no.\n\n",
+                    "Negative sentiment towards the other person detected:No, I I'm not so happy about the fruit shape, you know.\n\n",
+                    "Negative sentiment towards the other person detected:Yeah but it's not like really mushroom because you have uh you know uh like lemon shape, you know, centre is yellow and t d To integrate, you know yeah.\n\n",
+                    "Negative sentiment towards the other person detected:And so So what we w what I can add is that, you know he talk about what is outside, so what is inside is what we dis what we talked before about, you know, the chip, it is a low level chip, and You know, we don't need to k. You know wi the low level chips inside and you know the L_C_D_ button and the i The battery it is under.\n\n",
+                    "Negative sentiment towards the other person detected:Maybe you can vote to see how many everybody gives and no and just take the mean.\n\n"
+                ],
+                "time_taken": 0.18072962760925293,
+                "computational_intensity": 169197.49354053574
+            }
+        }
+    },
+    {
+        "file_name": "TS3010a.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "And uh I I I think it's positive if there's a a LED uh uh a LED on the corner of the of the remote.",
+                "time_taken": 0.12195825576782227,
+                "computational_intensity": 44121.65429984556
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:That when you drop it, it won't break.\n\n"
+                ],
+                "time_taken": 0.11988973617553711,
+                "computational_intensity": 44882.908009084145
+            }
+        }
+    },
+    {
+        "file_name": "ES2016d.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Um I think we tried a lotta different things and um I think it was um interesting as you guys brought up more um information and studies that we were right on with a lot of those things.",
+                "time_taken": 0.15996670722961426,
+                "computational_intensity": 117149.37642056252
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:Which makes this thing raise hell when you remove it too far from the television.\n\n",
+                    "Negative sentiment towards the other person detected:It's it's Um the it's based on this anti anti-theft technology for suitcases and stuff, where you have one piece that's attached to your luggage, another piece that starts beeping.\n\n",
+                    "Negative sentiment towards the other person detected:I mean you know loo losing things is one of those things that people can lose, I mean a million ways.\n\n",
+                    "Negative sentiment towards the other person detected:You can pick it up and walk away with it and then you've lost it.\n\n",
+                    "Negative sentiment towards the other person detected:Minus your PowerPoint fiasco.\n\n",
+                    "Negative sentiment towards the other person detected:I had some problem with the pen I think, but minus your p Well Have a we have a list of employees that you would like fired.\n\n"
+                ],
+                "time_taken": 0.16846275329589844,
+                "computational_intensity": 111241.2069336413
+            }
+        }
+    },
+    {
+        "file_name": "TS3009b.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Well what if we um I at I at home have a remote that has um the most familiar uh buttons on the top, and the bottom side of the front has a little clip, a f a little uh You can click away and then you have f much more functions that most people don't use but s some do do.",
+                "time_taken": 0.24407958984375,
+                "computational_intensity": 159837.20730182546
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:No you can click it on your television.\n\n",
+                    "Negative sentiment towards the other person detected:No but the most important buttons m maybe you can just put them a bit apart so you would reject R_ R_S_I_ R_S_I_.\n\n",
+                    "Negative sentiment towards the other person detected:No you can ch push zero.\n\n",
+                    "Negative sentiment towards the other person detected:Um at first I tell you something about what people dislike about the current uh controls, because it's uh a smart thing to exclude those things.\n\n",
+                    "Negative sentiment towards the other person detected:So Yeah but what if you lose your click-on device?\n\n"
+                ],
+                "time_taken": 0.1992931365966797,
+                "computational_intensity": 195756.8668255381
+            }
+        }
+    },
+    {
+        "file_name": "TS3003b.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "So um Wh what I was th uh thinking about was um you've got um Uh this the remote control uh and uh you got here the general functions, uh like uh the on-off button uh sound uh I dunno um And um here you've got a s kind of a display.",
+                "time_taken": 0.16568374633789062,
+                "computational_intensity": 149700.86413556512
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:That that means that you can have a little trouble with, little trouble with the air conditioning, that's because of this uh It's in wing C_ and E_.\n\n",
+                    "Negative sentiment towards the other person detected:Um I'm the Project Manager so I'm here to mess things up and uh tell you some new uh requirements.\n\n",
+                    "Negative sentiment towards the other person detected:You need a one to zero button, next channel, previous channel, volume up, volume down, and some teletext buttons but I think if you if you only l Nah.\n\n",
+                    "Negative sentiment towards the other person detected:That is true but I think there's simply not much to gain on the competition when you when you're making a remote control only for to operate only the T_V_.\n\n"
+                ],
+                "time_taken": 0.17255449295043945,
+                "computational_intensity": 143740.09958189752
+            }
+        }
+    },
+    {
+        "file_name": "TS3005a.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Okay, but uh I think that most people uh th uh will buy the remote control because because uh the first they lost the one they lost first one or the first one is broken, so uh uh perhaps they have a got a an older television, so that option is not uh optional for those uh people.",
+                "time_taken": 0.1515195369720459,
+                "computational_intensity": 101953.84904621262
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:But you can of course erase when you make a mistake, but don't uh delete entire pages.\n\n",
+                    "Negative sentiment towards the other person detected:But the people have a new television, and c if you look into the future, then they want will want the button, if their thing is broke.\n\n",
+                    "Negative sentiment towards the other person detected:And you always lose them.\n\n",
+                    "Negative sentiment towards the other person detected:That's possible, so that you only get the No n n no, just Uh for example you got th uh the same size uh remote control you use everyday, but um the usual buttons such as uh um zapping uh as you call it in Dutch.\n\n"
+                ],
+                "time_taken": 0.13903212547302246,
+                "computational_intensity": 111111.01083610709
+            }
+        }
+    },
+    {
+        "file_name": "ES2015d.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "So one plus one would be eleven, or Yeah because if you on your average um remote, if you press one twice you just go to um or uh say you wanted channel twelve, you press one, and then you go to channel one, and then two then you'd just go to channel two, instead of twelve.",
+                "time_taken": 0.20335865020751953,
+                "computational_intensity": 144818.0343936559
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:So you don't have to Oh that was a mistake, wasn't it?\n\n",
+                    "Negative sentiment towards the other person detected:No you press the plus first.\n\n",
+                    "Negative sentiment towards the other person detected:Without m taking your hand off the remote.\n\n",
+                    "Negative sentiment towards the other person detected:That kind of annoys me though, when it's zero six when you have to press I don't know why.\n\n",
+                    "Negative sentiment towards the other person detected:It's not your traditional yeah.\n\n",
+                    "Negative sentiment towards the other person detected:Maybe, it could it could be on the bottom, so you wouldn't loo like if it's flat here, so it sits up.\n\n",
+                    "Negative sentiment towards the other person detected:No, I guess, I don't know much about the remote control industry, how much your average sells for, but I know I am, aren't I?\n\n",
+                    "Negative sentiment towards the other person detected:If you don't put it Yeah.\n\n",
+                    "Negative sentiment towards the other person detected:Um 'cause it was said before in the material specification that this the this anti-R_S_I_ um material is often used in stress balls so this has got a you know a bit of give to it, and it just feels feels different.\n\n",
+                    "Negative sentiment towards the other person detected:But I mean it's not obviously obvious from the outside that that's gonna happen 'cause you can't s particularly see an alarm.\n\n",
+                    "Negative sentiment towards the other person detected:I think the only thing was having to remember to you know to tick the okays but I think I was the only one who struggled with that.\n\n"
+                ],
+                "time_taken": 0.17802190780639648,
+                "computational_intensity": 165429.07759435795
+            }
+        }
+    },
+    {
+        "file_name": "IS1007d.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Well so Yeah yeah I think we are yeah but we are also the um well the components will have to change because uh we have to deal with the shape and um but I don't think it will uh increase the cost too much so Uh well but it's a bit complicated to if if if you need machines to different machines to um ah well Yeah yeah we can have the same global shape and then uh add on skins and with with this uh tex spongy texture uh things like that.",
+                "time_taken": 0.17409443855285645,
+                "computational_intensity": 150297.73620284715
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:The problem is if i we are bla if a customer wants a certain component, and doesn't want the parental control because it's a couple who do not have children when you sell the product in the market you could meet any kind of people, and not all people will need all the functionalities we propose to them.\n\n",
+                    "Negative sentiment towards the other person detected:So We can make our study on this and No no we have you have designed two products now, one is with L_C_D_ and without L_C_D_.\n\n",
+                    "Negative sentiment towards the other person detected:According to you, no according to you designers, how will feel does it uh with L_C_D_ and without L_C_D_?\n\n",
+                    "Negative sentiment towards the other person detected:No no according to design aspect we want to know how would you feel the innovativeness?\n\n",
+                    "Negative sentiment towards the other person detected:No actually uh to make it with L_C_D_ you make more efforts.\n\n",
+                    "Negative sentiment towards the other person detected:Uh then No on the T_V_ you don't it doesn't display on the T_V_ now.\n\n",
+                    "Negative sentiment towards the other person detected:Yeah, but I mean if you have an add-ons, the kids may just uh hide the parental module and so that their parents can't use it.\n\n"
+                ],
+                "time_taken": 0.16453170776367188,
+                "computational_intensity": 159033.17576684983
+            }
+        }
+    },
+    {
+        "file_name": "ES2008a.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "And maybe that spatially divides it, so it's like if you're looki if you're trying to get the T_V_ on that's, you know, like the top thing on the remote, I dunno if d be vertical or horizontal in terms of how we're gonna make it, but if it's like all the T_V_ stuff was here, then all the V_C_R_ stuff was here, all the whatever else we have programmed into it it's all just in its separate place and not like all the on buttons together, 'cause then you like, I don't even know what I'm turning on.",
+                "time_taken": 0.1382584571838379,
+                "computational_intensity": 95733.74583806118
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:Could we get something that just has No doesn't have all the buttons that you need to program the video recorder or program s other things that I'm not very coherent about, but that just has your major buttons for that work for everything, you know volume control, on, off, channel changing.\n\n"
+                ],
+                "time_taken": 0.13381528854370117,
+                "computational_intensity": 98912.46466712515
+            }
+        }
+    },
+    {
+        "file_name": "ES2003c.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "I don't actually think we need the um the numeric keypad because if you m because one of the menus that we could have available um v via via the L_C_D_ is one where you scroll through channels, so if there's something f and be bear in mind since this isn't meant to work for um f f f for di for digital or um or for or for cable, whatever, you're basically looking at four or five terrestrial channels, and then um your V_C_ uh and then the channel through your V_C_R_ and or D_V_D_ player.",
+                "time_taken": 0.17447614669799805,
+                "computational_intensity": 176236.12500580755
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:I can see why it looks appealing, but it could be a weak point in um the structure, do you think?\n\n",
+                    "Negative sentiment towards the other person detected:However, one interesting point is, I don't know how serious you were there, but we if we take some of the ideas why don't we make the damn thing yellow to incorporate the des the colour of the logo?\n\n",
+                    "Negative sentiment towards the other person detected:You wouldn't want to just have to scroll through all the channels to get to the one you want.\n\n",
+                    "Negative sentiment towards the other person detected:So um if we want something strong and sturdy, I say stay with plastic or titanium, but if we go with spongy, we can stress that you can drop this as many times as you want, it doesn't matter, it's spongy material, it's not gonna break, you know.\n\n",
+                    "Negative sentiment towards the other person detected:And if we are gonna use spongy, we can say it's long lasting, you know it's damage resistant and stuff like that, so.\n\n",
+                    "Negative sentiment towards the other person detected:Y you know, you lose the monkey the banana, y you lose the banana, you press a button, and you hear like monkey screams or something like that to direct you towards the banana.\n\n",
+                    "Negative sentiment towards the other person detected:I d I don't thi I don't think that it would be a a structural weakness, I mean if you have a firm s sub-structure, you can then incorporate articulation into that.\n\n",
+                    "Negative sentiment towards the other person detected:But if we had um some sort of hook-up to your computer as an option, then if you've got a computer you can avoid that rather irritating thing.\n\n",
+                    "Negative sentiment towards the other person detected:If you if there's w i if there's one in the shop that's that says it can avoid much of that nuisance, you might be favourably inclined towards it.\n\n",
+                    "Negative sentiment towards the other person detected:Um f for one for one thing because I do think that the menu system should be um uh I mean although you know, it's not going to be terribly complicated if it's just controlling one device, the menu system ought to be um o ought to be customisable and uh Mm-hmm.\n\n"
+                ],
+                "time_taken": 0.17618179321289062,
+                "computational_intensity": 174529.95249539893
+            }
+        }
+    },
+    {
+        "file_name": "ES2003a.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Well, one thing I'm aware of is, th there uh um at the sort of v very high price end of the market there's there's a em emerging market for sort of touch screen L_C_D_ remotes that can be uh programmed in m much more sophisticated ways than sort of conventional models, so you get the sort of you get um you you can redesign the interface to your own needs, you can programme in macros, and you get a much greater degree um um I mean you get in these sort of three in one, five in one, whatevers, but you can get integration between the different uh the the the diff the different things that it's designed to control, to a much greater extent, and you can have one uh you know one macro to turn the uh you know turn the T_V_ to the right channel, get the uh re uh rewind the tape in the V_C_R_ and get it to play once it's rewound, for instance.",
+                "time_taken": 0.12691807746887207,
+                "computational_intensity": 84511.20765385576
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:Well, fifty million, and if you're making twelve point five Euros on each one, then, awful lot need to be sold.\n\n",
+                    "Negative sentiment towards the other person detected:I think for gaming, you know you want you want some big buttons for up, down, left and right, shoot.\n\n",
+                    "Negative sentiment towards the other person detected:Uh, destroying your elephant here.\n\n",
+                    "Negative sentiment towards the other person detected:Like uh control pads, you know of games, but or is that a bit ridiculous?\n\n"
+                ],
+                "time_taken": 0.12865781784057617,
+                "computational_intensity": 83368.42781906121
+            }
+        }
+    },
+    {
+        "file_name": "ES2003d.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "So um I'm very much open to suggestions of where we go, but because we need to shed what was four Euros off of the um the price of for what we really desired, this one comes in under price as you can see, but this was the one that sacrificed the material for the case and for the actual case design.",
+                "time_taken": 0.19175338745117188,
+                "computational_intensity": 162948.88145304075
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:It makes it stand out from you know it's lost in a big pile of crap, it stands out from the rest of the crap.\n\n",
+                    "Negative sentiment towards the other person detected:And uh perhaps I could have put 'em a bit better, but you notice a few things that we've totally abandoned, which means that uh the product will score very badly on some of those points.\n\n",
+                    "Negative sentiment towards the other person detected:Os on a scale of one to seven, how would you guys rate it for finding finding it once it's lost?\n\n",
+                    "Negative sentiment towards the other person detected:I was actually kind of upset you know at the budget, and that we had to cut a lot of stuff.\n\n",
+                    "Negative sentiment towards the other person detected:Problem comes here as you can see in the interface.\n\n",
+                    "Negative sentiment towards the other person detected:Which you could It's a shame.\n\n",
+                    "Negative sentiment towards the other person detected:Again, you'll have to argue with the accountants on that one.\n\n",
+                    "Negative sentiment towards the other person detected:Um I would say that you're at least gonna take double curved, and even then I'm not quite sure if that's incorporating the idea of articulation.\n\n",
+                    "Negative sentiment towards the other person detected:It is very much a pity to um get so far into the stage and then find out that maybe some of your ideas are just a bit too expensive.\n\n",
+                    "Negative sentiment towards the other person detected:Always hard to tell until you know the costs.\n\n"
+                ],
+                "time_taken": 0.1848464012145996,
+                "computational_intensity": 169037.6431171337
+            }
+        }
+    },
+    {
+        "file_name": "TS3007a.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "So not a not a remote control who uh uh which can uh can be used for television and a D_V_D_ and radio and Or just only If you have them on uh I can uh Okay.",
+                "time_taken": 0.15538859367370605,
+                "computational_intensity": 107781.39890478975
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:Think you uh picked the wrong uh function.\n\n",
+                    "Negative sentiment towards the other person detected:A And then you s then you can delete uh the o the obsolete uh details.\n\n",
+                    "Negative sentiment towards the other person detected:Do not touch your hand on uh this little uh thingy here.\n\n",
+                    "Negative sentiment towards the other person detected:Oh, in case you want it This is a dead kind of fly.\n\n",
+                    "Negative sentiment towards the other person detected:So you don't uh uh come up with the user requirements who don't fit the the the the technical functions at all.\n\n"
+                ],
+                "time_taken": 0.1675734519958496,
+                "computational_intensity": 99944.23221892456
+            }
+        }
+    },
+    {
+        "file_name": "ES2004a.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Actually that just raises a point, I wonder what our design people think, but you know on a mobile phone, you can press a key and it gives you a menu, it's got a menu display, I wonder if incorporating that into the design of a remote control might be useful, so you've got a little L_C_D_ display.",
+                "time_taken": 0.13683485984802246,
+                "computational_intensity": 100486.08969433395
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:I mean I've got we got um we had three videos, a T_V_ and a sort of amp thing all set up so we got one of the universal remote controls, um that you programme each of your things into, but that kept losing the signals so we'd have to re-programme it every now and again.\n\n",
+                    "Negative sentiment towards the other person detected:That's my dreadful that's the worst yet, that's it's meant to be an eagle you can tell it's a flying animal could have been a seagull, I never thought of a seagull.\n\n",
+                    "Negative sentiment towards the other person detected:So that's a problem regardless of of any design modifications you you come up with, that's gonna be a problem anyway with the older generation perhaps, and that's another issue how we tackle that.\n\n",
+                    "Negative sentiment towards the other person detected:And there's no reason we need to make it look as fashionable and stylish as a mobile phone, it can still be lightweight plastic, you know?\n\n"
+                ],
+                "time_taken": 0.14237046241760254,
+                "computational_intensity": 96579.02184561538
+            }
+        }
+    },
+    {
+        "file_name": "TS3006b.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Um the one group for the for the display, and one group for the basic functions, and Yeah okay but we we have a m yeah but maybe that's that's not uh yeah if you're if you're z zapping uh with your uh yeah remote control, you can press the the menu button, and then you are suddenly into the the yeah the display.",
+                "time_taken": 0.22095632553100586,
+                "computational_intensity": 159873.2234304964
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:I mean if you can't control the the sound settings I mean if you dislike a very uh loud bass or something, you you need to change that.\n\n",
+                    "Negative sentiment towards the other person detected:So if you have sound But not too advanced.\n\n",
+                    "Negative sentiment towards the other person detected:Or or is it too hard to to ju to just do it all on your remote?\n\n",
+                    "Negative sentiment towards the other person detected:So you l should leave the menu button out of here.\n\n",
+                    "Negative sentiment towards the other person detected:Yeah we'll kick your ass later.\n\n",
+                    "Negative sentiment towards the other person detected:And yeah in the functionality of the no no of the remote uh do do we want uh the buttons to make sound when you press them?\n\n",
+                    "Negative sentiment towards the other person detected:If you put too many functions in one button it gets confusing.\n\n",
+                    "Negative sentiment towards the other person detected:But it it's not clear what you have to to to type uh type in your presentation.\n\n",
+                    "Negative sentiment towards the other person detected:Um if you all go stand around uh Computer Um No.\n\n"
+                ],
+                "time_taken": 0.19284486770629883,
+                "computational_intensity": 183178.32577115658
+            }
+        }
+    },
+    {
+        "file_name": "IS1009d.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "Um yeah and um uh the material which we are going to use for the case is uh plastic and uh w which which is s strong um uh and also uh for the Um the material is plastic and uh for the buttons it is uh s soft rubber um and als yeah.",
+                "time_taken": 0.19318675994873047,
+                "computational_intensity": 127431.09313771468
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:But I mean we have no way of presenting that to management as you know as a f finished, as a finished product and saying okay with the voice recogniser that costs so much.\n\n",
+                    "Negative sentiment towards the other person detected:Uh, it's maybe not in the best position in the room um you know like sometimes it's positioned so that it's much better visible for everybody and I think from that point of view we sort of ignored it a little bit.\n\n",
+                    "Negative sentiment towards the other person detected:And then functionality um I think you did a really good job on functionality, obviously we could have ad added different functions but then we'd disturb something else so I would say that we got to a five out of seven on on functionality.\n\n",
+                    "Negative sentiment towards the other person detected:Well as we know in today's technic technological world you can do just about anything at any price, the the the problem is quality.\n\n",
+                    "Negative sentiment towards the other person detected:Wait what would you ra uh one being good and seven being the worst.\n\n",
+                    "Negative sentiment towards the other person detected:No, swapping is if if example you're you're watching the second channel and then you go to the tenth channel and if you want to go back to the second channel you can swap, this button.\n\n"
+                ],
+                "time_taken": 0.1667466163635254,
+                "computational_intensity": 147637.17871390047
+            }
+        }
+    },
+    {
+        "file_name": "ES2016a.transcript.txt",
+        "features": {
+            "ex_summarization": {
+                "result": "I mean of course it'll be evident after a while or if you look at it, it'll it'll be evident which way around to point it, since you have the the numbers and the and the the buttons and stuff, but um it's rather about an instinctual thing, like you just grab it, you don't have to s look at it, you know, which way around to point it.",
+                "time_taken": 0.13749241828918457,
+                "computational_intensity": 110697.0128926537
+            },
+            "sentiment": {
+                "result": [
+                    "Negative sentiment towards the other person detected:How would we go about um making you know getting rid of our weak points?\n\n",
+                    "Negative sentiment towards the other person detected:What if we flipped it around here, so that it were um Sorry, that doesn't look anything like what you had there.\n\n",
+                    "Negative sentiment towards the other person detected:Um one thing I thought of with the remote control is you always lose 'em.\n\n",
+                    "Negative sentiment towards the other person detected:Also also you risk the hinges here.\n\n",
+                    "Negative sentiment towards the other person detected:Well with the one-handed design you also have the the problem of the size w 'cause you know from cell phones, they can be too small.\n\n",
+                    "Negative sentiment towards the other person detected:From stabil stability point of view uh it certainly is, but also you have to face it and take into account the more of these things break by accident, uh the more we sell.\n\n",
+                    "Negative sentiment towards the other person detected:You know, all that dif batteries right, and Batteries go weak as well, so um after a while you have to point it towards the uh towards the equipment you wanna control with it, right?\n\n"
+                ],
+                "time_taken": 0.14055681228637695,
+                "computational_intensity": 108283.61679823863
+            }
+        }
+    }
+]

@@ -18,6 +18,17 @@
             "request": "launch",
             "program": "main_test.py",
             "console": "integratedTerminal"
+        },
+
+        {
+            "name": "Benchmarking",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "benchmarking.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONUNBUFFERED": "1"
+            }
         }
     ]
 }

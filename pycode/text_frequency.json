@@ -1,0 +1,62 @@
+{
+    "missing_features": {
+        "Real-time analysis": 2,
+        "More visualizations": 2,
+        "Integration with more platforms": 2,
+        "Advanced customization": 2,
+        "More detailed sentiment analysis": 2,
+        "Better speaker recognition": 2,
+        "Interactive dashboards": 2,
+        "Video analysis": 2,
+        "More language support": 2,
+        "Automated action item tracking": 2
+    },
+    "improvement_suggestions": {
+        "Faster processing": 2,
+        "More intuitive interface": 2,
+        "Better accuracy": 2,
+        "More features": 2,
+        "More frequent updates": 2,
+        "Better customer support": 2,
+        "More language support": 2,
+        "User training": 2,
+        "Improved visuals": 2,
+        "Enhanced security": 2
+    },
+    "employer_mandate_thoughts": {
+        "Supportive if it improves efficiency": 2,
+        "Open to it": 2,
+        "Concerned about privacy": 2,
+        "Positive if it enhances productivity": 2,
+        "Indifferent": 2,
+        "Resistant to mandatory use": 2,
+        "Welcoming": 2,
+        "Fine with it": 2,
+        "Supportive with conditions": 2,
+        "Wary of constant monitoring": 2
+    },
+    "employee_evaluation_use": {
+        "Yes, definitely": 2,
+        "Absolutely": 2,
+        "Yes, to ensure fairness": 2,
+        "Yes, critical for trust": 2,
+        "Not comfortable with it": 2,
+        "Yes, for accountability": 2,
+        "Skeptical without proof": 2,
+        "Yes, essential for fairness": 2,
+        "Concerned about misuse": 2,
+        "Yes, very important": 2
+    },
+    "privacy_concerns": {
+        "Yes, data security": 2,
+        "Concerned about data misuse": 2,
+        "Yes, sensitive information": 2,
+        "Worried about constant monitoring": 2,
+        "Yes, confidentiality": 2,
+        "Privacy is a big issue": 2,
+        "Yes, personal data protection": 2,
+        "Concerned about recording": 2,
+        "Yes, unauthorized access": 2,
+        "Yes, usage transparency": 2
+    }
+}
