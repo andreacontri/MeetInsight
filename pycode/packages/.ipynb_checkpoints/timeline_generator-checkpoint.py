@@ -5,7 +5,7 @@ import matplotlib.patches as patches
 from matplotlib.ticker import MaxNLocator
 from matplotlib.dates import DateFormatter
 
-def create_timeline_figure(df):
+def create_timeline_figure(df, cmap):
     """
     Generate a timeline figure illustrating the durations each speaker spoke in a conversation.
     This function uses the Matplotlib library to create a timeline from a DataFrame that contains
@@ -40,7 +40,7 @@ def create_timeline_figure(df):
     speaker_positions = {speaker: idx for idx, speaker in enumerate(speakers)}
 
     # Create a color map for the speakers
-    cmap = plt.get_cmap('Pastel2')
+    # cmap = plt.get_cmap('Pastel2')
     colors = cmap(np.linspace(0, 1, len(speakers)))
     
     # Initialize legend patches for adding to the legend later

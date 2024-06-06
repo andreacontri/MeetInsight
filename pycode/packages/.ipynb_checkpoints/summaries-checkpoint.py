@@ -33,7 +33,7 @@ def abstractive_summarize_chunks(chunks: List[str]) -> str:
         inputs = inputs.to(device)
         
         # Generate summary
-        summary_ids = model.generate(inputs, max_length=20, min_length=10, length_penalty=2.0, num_beams=4, early_stopping=True)
+        summary_ids = model.generate(inputs, max_length=20, min_length=40, length_penalty=2.0, num_beams=4, early_stopping=True)
         
         # Decode and clean up the summary
         summary_text = tokenizer.decode(summary_ids[0], skip_special_tokens=True)

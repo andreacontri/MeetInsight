@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-def create_stats_figure(df):
+def create_stats_figure(df, cmap):
     """
     Generate a figure containing pie charts for various statistical data about speakers.
     
@@ -50,7 +50,7 @@ def create_stats_figure(df):
     axes = axes.flatten()
 
     # Use a colormap for consistent coloring across the pies
-    cmap = plt.get_cmap('Pastel2')
+    # cmap = plt.get_cmap('copper')
     colors = cmap(np.linspace(0, 1, len(speaker_durations)))
 
     def format(pct, alldata, i):

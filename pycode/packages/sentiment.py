@@ -6,7 +6,7 @@ import nltk
 # nltk.download('vader_lexicon')
 
 # Load the SpaCy model
-nlp = spacy.load("en_core_web_sm")
+# nlp = spacy.load("en_core_web_sm")
 
 # Initialize the sentiment analyzer
 sia = SentimentIntensityAnalyzer()
@@ -31,7 +31,7 @@ def sentiment(df):
 		for pronoun in other_person_pronouns:
 			if pronoun in turn.lower():
 				if scores['compound'] < boundary_score:
-					sentiment.append(f"Negative sentiment towards the other person detected: {turn}" + "\n" + "\n")
+					sentiment.append(f"!!!: {turn}" + "\n" + "\n")
 					break
 
 	return sentiment

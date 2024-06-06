@@ -88,53 +88,53 @@ class VTTAnalyzer(tk.Tk):
         self.upload_frame.grid(row=0, column=0, sticky="n", pady=10, rowspan=1)
 
 
-        # # Create the scrollable frame inside the content frame
-        # self.scrollable_frame = ScrollableFrame(self.content_frame)
-        # self.scrollable_frame.grid(row=1, column=0, sticky='nsew')
-        # ##############################################################################################################   ORANGE
-        # # self.scrollable_frame = VerticalScrolledFrame(self.content_frame)
-        # # self.scrollable_frame.grid(row=1, column=0, sticky="ns", pady=10)
+        # Create the scrollable frame inside the content frame
+        self.scrollable_frame = ScrollableFrame(self.content_frame)
+        self.scrollable_frame.grid(row=1, column=0, sticky='nsew')
+        ##############################################################################################################   ORANGE
+        # self.scrollable_frame = VerticalScrolledFrame(self.content_frame)
+        # self.scrollable_frame.grid(row=1, column=0, sticky="ns", pady=10)
     
 
-        # self.scrollable_frame = tk.Frame(self.content_frame, bg='purple')
-        # self.scrollable_frame.grid(row=1, column=0, sticky="n", pady=10)
+        self.scrollable_frame = tk.Frame(self.content_frame, bg='purple')
+        self.scrollable_frame.grid(row=1, column=0, sticky="n", pady=10)
         
-        # self.scrollbar = ttk.Scrollbar(self.scrollable_frame)
-        # self.scrollbar.grid(row=0, column=1, sticky="ns")
-        # #############################################################################################################   PURPLE
-        self.canvas_frame = tk.Frame(self.content_frame, bg='purple')
-        self.canvas_frame.grid(row=1, column=0, sticky="news", pady=10, columnspan=2)
-
-        ##############################################################################################################   LIGHTGREEN
-        # Create a canvas and place it in the canvas_frame
-        self.canvas = tk.Canvas(self.canvas_frame, bg='lightgreen')
-        self.canvas.grid(row=0, column=0, sticky="ensw")
-
-        # Create a vertical scrollbar linked to the canvas
-        self.scrollbar = ttk.Scrollbar(self.canvas_frame, orient="vertical", command=self.canvas.yview)
+        self.scrollbar = ttk.Scrollbar(self.scrollable_frame)
         self.scrollbar.grid(row=0, column=1, sticky="ns")
+        # #############################################################################################################   PURPLE
+        # self.canvas_frame = tk.Frame(self.content_frame, bg='purple')
+        # self.canvas_frame.grid(row=1, column=0, sticky="news", pady=10, columnspan=2)
 
-        # Configure the canvas to use the scrollbar
-        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+        # ##############################################################################################################   LIGHTGREEN
+        # # Create a canvas and place it in the canvas_frame
+        # self.canvas = tk.Canvas(self.canvas_frame, bg='lightgreen')
+        # self.canvas.grid(row=0, column=0, sticky="ensw")
 
-        # Create a frame inside the canvas
-        self.scrollable_frame = ttk.Frame(self.canvas_frame)
-        self.scrollable_frame.grid(row=0, column=0, sticky="n", pady=10)
+        # # Create a vertical scrollbar linked to the canvas
+        # self.scrollbar = ttk.Scrollbar(self.canvas_frame, orient="vertical", command=self.canvas.yview)
+        # self.scrollbar.grid(row=0, column=1, sticky="ns")
 
-        # Create a window inside the canvas
-        self.window = self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
-        # Ensure the scroll region is updated whenever the size of the frame changes
-        self.scrollable_frame.bind(
-            "<Configure>",
-            lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all"))
-        )
+        # # Configure the canvas to use the scrollbar
+        # self.canvas.configure(yscrollcommand=self.scrollbar.set)
 
-        # Ensure the scrollable frame width matches the canvas frame width
-        self.canvas.bind("<Configure>", self.on_canvas_configure)
+        # # Create a frame inside the canvas
+        # self.scrollable_frame = ttk.Frame(self.canvas_frame)
+        # self.scrollable_frame.grid(row=0, column=0, sticky="n", pady=10)
 
-        # Make the content_frame expandable
-        self.content_frame.grid_columnconfigure(0, weight=1)
-        self.content_frame.grid_rowconfigure(1, weight=1)
+        # # Create a window inside the canvas
+        # self.window = self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        # # Ensure the scroll region is updated whenever the size of the frame changes
+        # self.scrollable_frame.bind(
+        #     "<Configure>",
+        #     lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+        # )
+
+        # # Ensure the scrollable frame width matches the canvas frame width
+        # self.canvas.bind("<Configure>", self.on_canvas_configure)
+
+        # # Make the content_frame expandable
+        # self.content_frame.grid_columnconfigure(0, weight=1)
+        # self.content_frame.grid_rowconfigure(1, weight=1)
 
         self.create_buttons()
         # self.create_upload()
