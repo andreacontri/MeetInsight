@@ -21,6 +21,9 @@ To install the necessary dependencies, run:
 ```bash
 pip install -r requirements.txt
 ```
+## Documentation
+
+To access the documentation docs/-build/html/index.html
 
 ## Demo
 
