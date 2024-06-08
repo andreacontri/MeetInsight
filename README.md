@@ -22,14 +22,6 @@ To install the necessary dependencies, run:
 pip install -r requirements.txt
 ```
 
-## Usage
-
-To use MeetInsight, follow these steps:
-
-1. **Upload Transcripts**: Upload your meeting transcript files in either .vtt or .txt format.
-2. **Run Analysis**: Use the provided scripts to perform sentiment analysis, summarization, and extract key points.
-3. **View Results**: Analyze the generated outputs to gain insights into your meetings.
-
 ## Demo
 
 A demo of MeetInsight is available in the `DEMO.ipynb` Jupyter Notebook. This notebook is pre-run and includes examples of how to use the various features of MeetInsight
