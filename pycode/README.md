@@ -1,1 +1,1 @@
-TEMPORARY: To access the documentation docs/-build/html/index.html6
+To access the documentation docs/-build/html/index.html

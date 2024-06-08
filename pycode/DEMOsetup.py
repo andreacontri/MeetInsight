@@ -46,8 +46,8 @@ vtt_filename = "data/example_transcripts.vtt"
 df, formatted_content = format_VTT(vtt_filename)
 
 
-txt_dir = 'data/ami-transcripts'
-file_name = 'test_transcript.txt'
+txt_dir = 'data/'#ami-transcripts'
+file_name = 'test.txt'
 file_path = os.path.join(txt_dir, file_name)
 with open(file_path, 'r', encoding='utf-8') as file:
 	text = file.read()
